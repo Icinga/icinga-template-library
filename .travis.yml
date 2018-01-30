@@ -1,0 +1,20 @@
+dist: trusty
+sudo: required
+
+addons:
+  apt:
+    sources:
+      - sourceline: deb http://packages.icinga.com/ubuntu icinga-trusty-snapshots main
+        key_url: https://packages.icinga.com/icinga.key
+    packages:
+      - icinga2
+
+before_script:
+  - sudo icinga2 --version
+  # Ensure we are never testing against package installed itl
+  - sudo rm -rf /usr/share/icinga2/include/*
+
+script:
+  - sudo ./test.sh
+  - sudo PREFIX=/tmp/icinga2 ./install.sh
+  - test -e /tmp/icinga2/share/icinga2/include/itl || (echo "Install not present!"; exit 1)
