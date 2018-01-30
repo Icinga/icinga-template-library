@@ -28,7 +28,7 @@ Custom attributes:
 
 Name                       | Description
 ---------------------------|-------------
-running\_kernel\_use\_sudo | Whether to run the plugin with `sudo`. Defaults to false except on Ubuntu where it defaults to true.
+running_kernel_use_sudo | Whether to run the plugin with `sudo`. Defaults to false except on Ubuntu where it defaults to true.
 
 ## iostats <a id="iostats"></a>
 
@@ -40,15 +40,15 @@ Custom attributes passed as [command parameters](03-monitoring-basics.md#command
 
 Name           | Description
 ---------------|-----------------------------------------------------------------------------------------------------------------------
-iostats\_disk            | **Required.** The device to monitor without path. e.g. sda or vda. (default: sda).
-iostats\_warning\_tps    | **Required.** Warning threshold for tps (default: 3000).
-iostats\_warning\_read   | **Required.** Warning threshold for KB/s reads (default: 50000).
-iostats\_warning\_write  | **Required.** Warning threshold for KB/s writes (default: 10000).
-iostats\_warning\_wait   | **Required.** Warning threshold for % iowait (default: 50).
-iostats\_critical\_tps   | **Required.** Critical threshold for tps (default: 5000).
-iostats\_critical\_read  | **Required.** Critical threshold for KB/s reads (default: 80000).
-iostats\_critical\_write | **Required.** Critical threshold for KB/s writes (default: 25000).
-iostats\_critical\_wait  | **Required.** Critical threshold for % iowait (default: 80).
+iostats_disk            | **Required.** The device to monitor without path. e.g. sda or vda. (default: sda).
+iostats_warning_tps    | **Required.** Warning threshold for tps (default: 3000).
+iostats_warning_read   | **Required.** Warning threshold for KB/s reads (default: 50000).
+iostats_warning_write  | **Required.** Warning threshold for KB/s writes (default: 10000).
+iostats_warning_wait   | **Required.** Warning threshold for % iowait (default: 50).
+iostats_critical_tps   | **Required.** Critical threshold for tps (default: 5000).
+iostats_critical_read  | **Required.** Critical threshold for KB/s reads (default: 80000).
+iostats_critical_write | **Required.** Critical threshold for KB/s writes (default: 25000).
+iostats_critical_wait  | **Required.** Critical threshold for % iowait (default: 80).
 
 ## iostat <a id="iostat"></a>
 
@@ -60,13 +60,13 @@ Custom attributes passed as [command parameters](03-monitoring-basics.md#command
 
 Name           | Description
 ---------------|-----------------------------------------------------------------------------------------------------------------------
-iostat\_disk   | **Required.** The device to monitor without path. e.g. sda or vda. (default: sda).
-iostat\_wtps   | **Required.** Warning threshold for tps (default: 100).
-iostat\_wread  | **Required.** Warning threshold for KB/s reads (default: 100).
-iostat\_wwrite | **Required.** Warning threshold for KB/s writes (default: 100).
-iostat\_ctps   | **Required.** Critical threshold for tps (default: 200).
-iostat\_cread  | **Required.** Critical threshold for KB/s reads (default: 200).
-iostat\_cwrite | **Required.** Critical threshold for KB/s writes (default: 200).
+iostat_disk   | **Required.** The device to monitor without path. e.g. sda or vda. (default: sda).
+iostat_wtps   | **Required.** Warning threshold for tps (default: 100).
+iostat_wread  | **Required.** Warning threshold for KB/s reads (default: 100).
+iostat_wwrite | **Required.** Warning threshold for KB/s writes (default: 100).
+iostat_ctps   | **Required.** Critical threshold for tps (default: 200).
+iostat_cread  | **Required.** Critical threshold for KB/s reads (default: 200).
+iostat_cwrite | **Required.** Critical threshold for KB/s writes (default: 200).
 
 ## yum <a id="yum"></a>
 

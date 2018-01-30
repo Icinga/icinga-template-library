@@ -37,11 +37,11 @@ Custom attributes:
 
 Name                   | Description
 :----------------------|:----------------------
-nscp\_api\_host       | **Required**. NSCP API host address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
-nscp\_api\_port       | **Optional**. NSCP API port. Defaults to `8443`.
-nscp\_api\_password   | **Required**. NSCP API password. Please check the NSCP documentation for setup details.
-nscp\_api\_query      | **Required**. NSCP API query endpoint. Refer to the NSCP documentation for possible values.
-nscp\_api\_arguments  | **Optional**. NSCP API arguments dictionary either as single strings or key-value pairs using `=`. Refer to the NSCP documentation.
+nscp_api_host       | **Required**. NSCP API host address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+nscp_api_port       | **Optional**. NSCP API port. Defaults to `8443`.
+nscp_api_password   | **Required**. NSCP API password. Please check the NSCP documentation for setup details.
+nscp_api_query      | **Required**. NSCP API query endpoint. Refer to the NSCP documentation for possible values.
+nscp_api_arguments  | **Optional**. NSCP API arguments dictionary either as single strings or key-value pairs using `=`. Refer to the NSCP documentation.
 
 `nscp_api_arguments` can be used to pass required thresholds to the executed check. The example below
 checks the CPU utilization and specifies warning and critical thresholds.
