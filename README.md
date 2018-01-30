@@ -1,44 +1,62 @@
-Icinga Template Library
-=======================
+[![Build Status](https://travis-ci.org/Icinga/icinga-template-library.svg?branch=master)](https://travis-ci.org/Icinga/icinga-template-library)
 
-Future home of the Icinga Template Library, or short ITL.
+# Icinga Template Library
 
-Please do not use this as of now. The README will be updated once we really migrate.
+![Icinga Logo](https://www.icinga.com/wp-content/uploads/2014/06/icinga_logo.png)
 
-## Import from icinga2
+#### Table of Contents
 
-    git clone https://github.com/Icinga/icinga2.git icinga2/
+1. [About][About]
+2. [License][License]
+3. [Installation][Installation]
+4. [Documentation][Documentation]
+5. [Support][Support]
+6. [Contributing][Contributing]
 
-    cd icinga2/
-    git checkout -b itl-split
+## NOTE: Under development
 
-    # if necessary restart
-    git reset --hard origin/master
+Please see [Icinga 2 PR #6042](https://github.com/Icinga/icinga2/pull/6042) and [#3](https://github.com/Icinga/icinga-template-library/issues/3).
 
-    ../git-itl-filter.sh
+## About
 
-    git remote add itl git@github.com:Icinga/icinga-template-library.git
-    git push -fu itl itl-split:icinga2-export
+This is the Icinga Template Library (or ITL), a collection of `CheckCommand` for Icinga 2 to execute Icinga and Nagios
+plugins.
 
-    # Merge into local repository
-    cd ../
-    git fetch origin
-    git merge --allow-unrelated-histories origin/icinga2-export
+[Icinga 2](https://www.icinga.com/products/icinga-2/) is an open source monitoring system which checks the availability
+of your network resources, notifies users of outages, and generates performance data for reporting.
 
 ## License
 
-    Copyright (C) 2012-2017 Icinga Development Team <info@icinga.com>
+Icinga 2 and the ITL documentation are licensed under the terms of the GNU General Public License Version 2, you will
+find a copy of this license in the COPYING file included in the source package.
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+## Installation
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+Read the [INSTALL.md](INSTALL.md) file for more information about how to install the ITL.
 
-    You should have received a copy of the GNU General Public License along
-    with this program; if not, write to the Free Software Foundation, Inc.,
-    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+## Documentation
+
+The documentation is located in the [doc/](doc/) directory. The latest documentation
+is also available on https://docs.icinga.com
+
+## Support
+
+Check the project website at https://www.icinga.com for status updates. Join the
+[community channels](https://www.icinga.com/community/get-involved/) for questions
+or ask an Icinga partner for [professional support](https://www.icinga.com/services/support/).
+
+## Contributing
+
+There are many ways to contribute to Icinga -- whether it be sending patches,
+testing, reporting bugs, or reviewing and updating the documentation. Every
+contribution is appreciated!
+
+Please continue reading in the [contributing chapter](CONTRIBUTING.md).
+
+<!-- TOC URLs -->
+[About]: #about
+[License]: #license
+[Installation]: #installation
+[Documentation]: #documentation
+[Support]: #support
+[Contributing]: #contributing
