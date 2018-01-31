@@ -10,16 +10,15 @@ HTTP endpoint to monitor status metrics for the Apache webserver.
 
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
-Name                    | Description
-------------------------|----------------------------------------------------------------------------------
-apache_status_address	| **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, `address6` otherwise.
-apache_status_port	| **Optional.** the http port.
-apache_status_url	| **Optional.** URL to use, instead of the default (http://`apache_status_address`/server-status).
-apache_status_ssl	| **Optional.** set to use ssl connection
-apache_status_timeout	| **Optional.** timeout in seconds
-apache_status_warning	| **Optional.** Warning threshold (number of open slots, busy workers and idle workers that will cause a WARNING) like ':20,50,:50'.
-apache_status_critical	| **Optional.** Critical threshold (number of open slots, busy workers and idle workers that will cause a CRITICAL) like ':10,25,:20'.
-
+Name                   | Description
+-----------------------|------------
+apache_status_address  | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, `address6` otherwise.
+apache_status_port     | **Optional.** the http port.
+apache_status_url      | **Optional.** URL to use, instead of the default (http://`apache_status_address`/server-status).
+apache_status_ssl      | **Optional.** set to use ssl connection
+apache_status_timeout  | **Optional.** timeout in seconds
+apache_status_warning  | **Optional.** Warning threshold (number of open slots, busy workers and idle workers that will cause a WARNING) like ':20,50,:50'.
+apache_status_critical | **Optional.** Critical threshold (number of open slots, busy workers and idle workers that will cause a CRITICAL) like ':10,25,:20'.
 
 ## cert <a id="plugin-check-command-ssl_cert"></a>
 
@@ -28,8 +27,8 @@ uses the openssl binary (and optional curl) to check a X.509 certificate.
 
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
-Name                      | Description
---------------------------|--------------
+Name                          | Description
+------------------------------|------------
 ssl_cert_address              | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
 ssl_cert_port                 | **Optional.** TCP port number (default: 443).
 ssl_cert_file                 | **Optional.** Local file path. Works only if `ssl_cert_address` is set to "localhost".
@@ -59,7 +58,6 @@ ssl_cert_cipher               | **Optional.** Cipher selection: force {ecdsa,rsa
 ssl_cert_ignore_expiration    | **Optional.** Ignore expiration date.
 ssl_cert_ignore_ocsp          | **Optional.** Do not check revocation with OCSP.
 
-
 ## jmx4perl <a id="jmx4perl"></a>
 
 The [check_jmx4perl](http://search.cpan.org/~roland/jmx4perl/scripts/check_jmx4perl) plugin
@@ -71,7 +69,7 @@ part of the `JMX::Jmx4Perl` Perl module which includes detailed
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
 Name                         | Description
------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------|------------
 jmx4perl_url                 | **Required.** URL to agent web application. Defaults to "http://$address$:8080/jolokia".
 jmx4perl_product             | **Optional.** Name of app server product (e.g. jboss), by default is uses an auto detection facility.
 jmx4perl_alias               | **Optional.** Alias name for attribute (e.g. MEMORY_HEAP_USED). All available aliases can be viewed by executing `jmx4perl aliases` on the command line.
@@ -107,7 +105,6 @@ jmx4perl_config              | **Optional.** Path to configuration file.
 jmx4perl_server              | **Optional.** Symbolic name of server url to use, which needs to be configured in the configuration file.
 jmx4perl_check               | **Optional.** Name of a check configuration as defined in the configuration file, use array if you need arguments.
 
-
 ## kdc <a id="kdc"></a>
 
 The [check_kdc](https://exchange.nagios.org/directory/Plugins/Security/check_kdc/details) plugin
@@ -115,13 +112,12 @@ uses the Kerberos `kinit` binary to monitor Kerberos 5 KDC by acquiring a ticket
 
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
-Name            | Description
-----------------|--------------------------------------------------------------------------
-kdc_address	| **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, `address6` otherwise.
-kdc_port	| **Optional** Port on which KDC runs (default 88).
-kdc_principal	| **Required** Principal name to authenticate as (including realm).
-kdc_keytab	| **Required** Keytab file containing principal's key.
-
+Name          | Description
+--------------|------------
+kdc_address   | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, `address6` otherwise.
+kdc_port      | **Optional** Port on which KDC runs (default 88).
+kdc_principal | **Required** Principal name to authenticate as (including realm).
+kdc_keytab    | **Required** Keytab file containing principal's key.
 
 ## nginx_status <a id="nginx_status"></a>
 
@@ -131,22 +127,21 @@ HTTP endpoint which provides metrics for monitoring Nginx.
 
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
-Name                    	| Description
---------------------------------|----------------------------------------------------------------------------------
-nginx_status_host_address	| **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, `address6` otherwise.
-nginx_status_port		| **Optional.** the http port.
-nginx_status_url		| **Optional.** URL to use, instead of the default (http://`nginx_status_hostname`/nginx_status).
-nginx_status_servername		| **Optional.** ServerName to use if you specified an IP to match the good Virtualhost in your target.
-nginx_status_ssl		| **Optional.** set to use ssl connection.
-nginx_status_disable_sslverify		| **Optional.** set to disable SSL hostname verification.
-nginx_status_user		| **Optional.** Username for basic auth.
-nginx_status_pass		| **Optional.** Password for basic auth.
-nginx_status_realm		| **Optional.** Realm for basic auth.
-nginx_status_maxreach		| **Optional.** Number of max processes reached (since last check) that should trigger an alert.
-nginx_status_timeout		| **Optional.** timeout in seconds.
-nginx_status_warn		| **Optional.** Warning threshold (number of active connections, ReqPerSec or ConnPerSec that will cause a WARNING) like '10000,100,200'.
-nginx_status_critical		| **Optional.** Critical threshold (number of active connections, ReqPerSec or ConnPerSec that will cause a CRITICAL) like '20000,200,300'.
-
+Name                           | Description
+-------------------------------|------------
+nginx_status_host_address      | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, `address6` otherwise.
+nginx_status_port              | **Optional.** the http port.
+nginx_status_url               | **Optional.** URL to use, instead of the default (http://`nginx_status_hostname`/nginx_status).
+nginx_status_servername        | **Optional.** ServerName to use if you specified an IP to match the good Virtualhost in your target.
+nginx_status_ssl               | **Optional.** set to use ssl connection.
+nginx_status_disable_sslverify | **Optional.** set to disable SSL hostname verification.
+nginx_status_user              | **Optional.** Username for basic auth.
+nginx_status_pass              | **Optional.** Password for basic auth.
+nginx_status_realm             | **Optional.** Realm for basic auth.
+nginx_status_maxreach          | **Optional.** Number of max processes reached (since last check) that should trigger an alert.
+nginx_status_timeout           | **Optional.** timeout in seconds.
+nginx_status_warn              | **Optional.** Warning threshold (number of active connections, ReqPerSec or ConnPerSec that will cause a WARNING) like '10000,100,200'.
+nginx_status_critical          | **Optional.** Critical threshold (number of active connections, ReqPerSec or ConnPerSec that will cause a CRITICAL) like '20000,200,300'.
 
 ## rbl <a id="rbl"></a>
 
@@ -156,14 +151,13 @@ is blacklisted.
 
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
-Name            | Description
-----------------|--------------------------------------------------------------------------
-rbl_hostname	| **Optional.** The address or name of the SMTP server to check. Defaults to "$address$" if the host's `address` attribute is set, `address6` otherwise.
-rbl_server	| **Required** List of RBL servers as an array.
-rbl_warning	| **Optional** Number of blacklisting servers for a warning.
-rbl_critical	| **Optional** Number of blacklisting servers for a critical.
-tbl_timeout	| **Optional** Seconds before plugin times out (default: 15).
-
+Name         | Description
+-------------|------------
+rbl_hostname | **Optional.** The address or name of the SMTP server to check. Defaults to "$address$" if the host's `address` attribute is set, `address6` otherwise.
+rbl_server   | **Required** List of RBL servers as an array.
+rbl_warning  | **Optional** Number of blacklisting servers for a warning.
+rbl_critical | **Optional** Number of blacklisting servers for a critical.
+tbl_timeout  | **Optional** Seconds before plugin times out (default: 15).
 
 ## squid <a id="squid"></a>
 
@@ -172,18 +166,17 @@ uses the `squidclient` binary to monitor a [Squid proxy](http://www.squid-cache.
 
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
-Name                    | Description
-------------------------|----------------------------------------------------------------------------------
-squid_hostname		| **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
-squid_data		| **Optional.** Data to fetch (default: Connections) available data: Connections Cache Resources Memory FileDescriptors.
-squid_port		| **Optional.** Port number (default: 3128).
-squid_user		| **Optional.** WWW user.
-squid_password		| **Optional.** WWW password.
-squid_warning		| **Optional.** Warning threshold. See http://nagiosplug.sourceforge.net/developer-guidelines.html#THRESHOLDFORMAT for the threshold format.
-squid_critical		| **Optional.** Critical threshold. See http://nagiosplug.sourceforge.net/developer-guidelines.html#THRESHOLDFORMAT for the threshold format.
-squid_client		| **Optional.** Path of squidclient (default: /usr/bin/squidclient).
-squid_timeout		| **Optional.** Seconds before plugin times out (default: 15).
-
+Name           | Description
+---------------|------------
+squid_hostname | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+squid_data     | **Optional.** Data to fetch (default: Connections) available data: Connections Cache Resources Memory FileDescriptors.
+squid_port     | **Optional.** Port number (default: 3128).
+squid_user     | **Optional.** WWW user.
+squid_password | **Optional.** WWW password.
+squid_warning  | **Optional.** Warning threshold. See http://nagiosplug.sourceforge.net/developer-guidelines.html#THRESHOLDFORMAT for the threshold format.
+squid_critical | **Optional.** Critical threshold. See http://nagiosplug.sourceforge.net/developer-guidelines.html#THRESHOLDFORMAT for the threshold format.
+squid_client   | **Optional.** Path of squidclient (default: /usr/bin/squidclient).
+squid_timeout  | **Optional.** Seconds before plugin times out (default: 15).
 
 ## webinject <a id="webinject"></a>
 
@@ -200,7 +193,7 @@ display and may also be used for monitoring system response times.
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
 Name                    | Description
-------------------------|--------------
+------------------------|------------
 webinject_config_file   | **Optional.** There is a configuration file named 'config.xml' that is used to store configuration settings for your project. You can use this to specify which test case files to run and to set some constants and settings to be used by WebInject.
 webinject_output        | **Optional.** This option is followed by a directory name or a prefix to prepended to the output files. This is used to specify the location for writing output files (http.log, results.html, and results.xml). If a directory name is supplied (use either an absolute or relative path and make sure to add the trailing slash), all output files are written to this directory. If the trailing slash is omitted, it is assumed to a prefix and this will be prepended to the output files. You may also use a combination of a directory and prefix.
 webinject_no_output     | **Optional.** Suppresses all output to STDOUT except the results summary.

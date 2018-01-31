@@ -12,26 +12,26 @@ The Git repository is located on [GitHub](https://github.com/lausser/check_db2_h
 
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
-Name                             | Description
----------------------------------|------------------------------------------------------------------------------------------------------------------------------
-db2_health_database           | **Required.** The name of the database. (If it was catalogued locally, this parameter is the only you need. Otherwise you must specify database, hostname and port)
-db2_health_username           | **Optional.** The username for the database connection.
-db2_health_password           | **Optional.** The password for the database connection.
-db2_health_port               | **Optional.** The port where DB2 is listening.
-db2_health_warning            | **Optional.** The warning threshold depending on the mode.
-db2_health_critical           | **Optional.** The critical threshold depending on the mode.
-db2_health_mode               | **Required.** The mode uses predefined keywords for the different checks. For example "connection-time", "database-usage" or "sql".
-db2_health_method             | **Optional.** This tells the plugin how to connect to the database. The only method implemented yet is “dbi” which is the default. (It means, the plugin uses the perl module DBD::DB2).
-db2_health_name               | **Optional.** The tablespace, datafile, wait event, latch, enqueue depending on the mode or SQL statement to be executed with "db2_health_mode" sql.
-db2_health_name2              | **Optional.** If "db2_health_name" is a sql statement, "db2_health_name2" can be used to appear in the output and the performance data.
-db2_health_regexp             | **Optional.** If set to true, "db2_health_name" will be interpreted as a regular expression. Defaults to false.
-db2_health_units              | **Optional.** This is used for a better output of mode=sql and for specifying thresholds for mode=tablespace-free. Possible values are "%", "KB", "MB" and "GB".
-db2_health_maxinactivity      | **Optional.** Used for the maximum amount of time a certain event has not happened.
-db2_health_mitigation         | **Optional.** Classifies the severity of an offline tablespace.
-db2_health_lookback           | **Optional.** How many days in the past db2_health check should look back to calculate exitcode.
-db2_health_report             | **Optional.** Report can be used to output only the bad news. Possible values are "short", "long", "html". Defaults to `short`.
-db2_health_env_db2_home       | **Required.** Specifies the location of the db2 client libraries as environment variable `DB2_HOME`. Defaults to "/opt/ibm/db2/V10.5".
-db2_health_env_db2_version    | **Optional.** Specifies the DB2 version as environment variable `DB2_VERSION`.
+Name                       | Description
+---------------------------|------------
+db2_health_database        | **Required.** The name of the database. (If it was catalogued locally, this parameter is the only you need. Otherwise you must specify database, hostname and port)
+db2_health_username        | **Optional.** The username for the database connection.
+db2_health_password        | **Optional.** The password for the database connection.
+db2_health_port            | **Optional.** The port where DB2 is listening.
+db2_health_warning         | **Optional.** The warning threshold depending on the mode.
+db2_health_critical        | **Optional.** The critical threshold depending on the mode.
+db2_health_mode            | **Required.** The mode uses predefined keywords for the different checks. For example "connection-time", "database-usage" or "sql".
+db2_health_method          | **Optional.** This tells the plugin how to connect to the database. The only method implemented yet is “dbi” which is the default. (It means, the plugin uses the perl module DBD::DB2).
+db2_health_name            | **Optional.** The tablespace, datafile, wait event, latch, enqueue depending on the mode or SQL statement to be executed with "db2_health_mode" sql.
+db2_health_name2           | **Optional.** If "db2_health_name" is a sql statement, "db2_health_name2" can be used to appear in the output and the performance data.
+db2_health_regexp          | **Optional.** If set to true, "db2_health_name" will be interpreted as a regular expression. Defaults to false.
+db2_health_units           | **Optional.** This is used for a better output of mode=sql and for specifying thresholds for mode=tablespace-free. Possible values are "%", "KB", "MB" and "GB".
+db2_health_maxinactivity   | **Optional.** Used for the maximum amount of time a certain event has not happened.
+db2_health_mitigation      | **Optional.** Classifies the severity of an offline tablespace.
+db2_health_lookback        | **Optional.** How many days in the past db2_health check should look back to calculate exitcode.
+db2_health_report          | **Optional.** Report can be used to output only the bad news. Possible values are "short", "long", "html". Defaults to `short`.
+db2_health_env_db2_home    | **Required.** Specifies the location of the db2 client libraries as environment variable `DB2_HOME`. Defaults to "/opt/ibm/db2/V10.5".
+db2_health_env_db2_version | **Optional.** Specifies the DB2 version as environment variable `DB2_VERSION`.
 
 ## mssql_health <a id="mssql_health"></a>
 
@@ -44,7 +44,7 @@ The Git repository is located on [GitHub](https://github.com/lausser/check_mssql
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
 Name                             | Description
----------------------------------|------------------------------------------------------------------------------------------------------------------------------
+---------------------------------|------------
 mssql_health_hostname            | **Optional.** Specifies the database hostname or address. No default because you typically use "mssql_health_server".
 mssql_health_username            | **Optional.** The username for the database connection.
 mssql_health_password            | **Optional.** The password for the database connection.
@@ -81,7 +81,7 @@ mssql_health_multiline           | **Optional.** Multiline output.
 mssql_health_withmymodulesdyndir | **Optional.** Add-on modules for the my-modes will be searched in this directory.
 mssql_health_statefilesdir       | **Optional.** An alternate directory where the plugin can save files.
 mssql_health_isvalidtime         | **Optional.** Signals the plugin to return OK if now is not a valid check time.
-mssql_health_timeout           	 | **Optional.** Plugin timeout. Defaults to 15s.
+mssql_health_timeout             | **Optional.** Plugin timeout. Defaults to 15s.
 
 ## mysql_health <a id="mysql_health"></a>
 
@@ -94,7 +94,7 @@ The Git repository is located on [GitHub](https://github.com/lausser/check_mysql
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
 Name                             | Description
----------------------------------|------------------------------------------------------------------------------------------------------------------------------
+---------------------------------|------------
 mysql_health_hostname            | **Required.** Specifies the database hostname or address. Defaults to "$address$" or "$address6$" if the `address` attribute is not set.
 mysql_health_port                | **Optional.** Specifies the database port. Defaults to 3306 (or 1186 for "mysql_health_mode" cluster).
 mysql_health_socket              | **Optional.** Specifies the database unix socket. No default.
@@ -130,7 +130,7 @@ mysql_health_negate              | **Optional.** Emulate the negate plugin. --ne
 mysql_health_withmymodulesdyndir | **Optional.** Add-on modules for the my-modes will be searched in this directory.
 mysql_health_statefilesdir       | **Optional.** An alternate directory where the plugin can save files.
 mysql_health_isvalidtime         | **Optional.** Signals the plugin to return OK if now is not a valid check time.
-mysql_health_timeout           	 | **Optional.** Plugin timeout. Defaults to 60s.
+mysql_health_timeout             | **Optional.** Plugin timeout. Defaults to 60s.
 
 ## oracle_health <a id="oracle_health"></a>
 
@@ -141,32 +141,32 @@ The Git repository is located on [GitHub](https://github.com/lausser/check_oracl
 
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
-Name                             | Description
----------------------------------|------------------------------------------------------------------------------------------------------------------------------
-oracle_health_connect            | **Required.** Specifies the database connection string (from tnsnames.ora).
-oracle_health_username           | **Optional.** The username for the database connection.
-oracle_health_password           | **Optional.** The password for the database connection.
-oracle_health_warning            | **Optional.** The warning threshold depending on the mode.
-oracle_health_critical           | **Optional.** The critical threshold depending on the mode.
-oracle_health_mode               | **Required.** The mode uses predefined keywords for the different checks. For example "connection-time", "flash-recovery-area-usage" or "sql".
-oracle_health_method             | **Optional.** How the plugin should connect to the database (`dbi` for using DBD::Oracle (default), `sqlplus` for using the sqlplus-Tool).
-oracle_health_name               | **Optional.** The tablespace, datafile, wait event, latch, enqueue depending on the mode or SQL statement to be executed with "oracle_health_mode" sql.
-oracle_health_name2              | **Optional.** If "oracle_health_name" is a sql statement, "oracle_health_name2" can be used to appear in the output and the performance data.
-oracle_health_regexp             | **Optional.** If set to true, "oracle_health_name" will be interpreted as a regular expression. Defaults to false.
-oracle_health_units              | **Optional.** This is used for a better output of mode=sql and for specifying thresholds for mode=tablespace-free. Possible values are "%", "KB", "MB" and "GB".
-oracle_health_ident              | **Optional.** If set to true, outputs instance and database names. Defaults to false.
-oracle_health_commit             | **Optional.** Set this to true to turn on autocommit for the dbd::oracle module. Defaults to false.
-oracle_health_noperfdata         | **Optional.** Set this to true if you want to disable perfdata. Defaults to false.
-oracle_health_timeout            | **Optional.** Plugin timeout. Defaults to 60s.
-oracle_health_report             | **Optional.** Select the plugin output format. Can be short or long. Default to long.
+Name                     | Description
+-------------------------|------------
+oracle_health_connect    | **Required.** Specifies the database connection string (from tnsnames.ora).
+oracle_health_username   | **Optional.** The username for the database connection.
+oracle_health_password   | **Optional.** The password for the database connection.
+oracle_health_warning    | **Optional.** The warning threshold depending on the mode.
+oracle_health_critical   | **Optional.** The critical threshold depending on the mode.
+oracle_health_mode       | **Required.** The mode uses predefined keywords for the different checks. For example "connection-time", "flash-recovery-area-usage" or "sql".
+oracle_health_method     | **Optional.** How the plugin should connect to the database (`dbi` for using DBD::Oracle (default), `sqlplus` for using the sqlplus-Tool).
+oracle_health_name       | **Optional.** The tablespace, datafile, wait event, latch, enqueue depending on the mode or SQL statement to be executed with "oracle_health_mode" sql.
+oracle_health_name2      | **Optional.** If "oracle_health_name" is a sql statement, "oracle_health_name2" can be used to appear in the output and the performance data.
+oracle_health_regexp     | **Optional.** If set to true, "oracle_health_name" will be interpreted as a regular expression. Defaults to false.
+oracle_health_units      | **Optional.** This is used for a better output of mode=sql and for specifying thresholds for mode=tablespace-free. Possible values are "%", "KB", "MB" and "GB".
+oracle_health_ident      | **Optional.** If set to true, outputs instance and database names. Defaults to false.
+oracle_health_commit     | **Optional.** Set this to true to turn on autocommit for the dbd::oracle module. Defaults to false.
+oracle_health_noperfdata | **Optional.** Set this to true if you want to disable perfdata. Defaults to false.
+oracle_health_timeout    | **Optional.** Plugin timeout. Defaults to 60s.
+oracle_health_report     | **Optional.** Select the plugin output format. Can be short or long. Default to long.
 
 Environment Macros:
 
-Name                | Description
---------------------|------------------------------------------------------------------------------------------------------------------------------------------
-ORACLE_HOME         | **Required.** Specifies the location of the oracle instant client libraries. Defaults to "/usr/lib/oracle/11.2/client64/lib". Can be overridden by setting the custom attribute `oracle_home`.
-LD_LIBRARY_PATH    | **Required.** Specifies the location of the oracle instant client libraries for the run-time shared library loader. Defaults to "/usr/lib/oracle/11.2/client64/lib". Can be overridden by setting the custom attribute `oracle_ld_library_path`.
-TNS_ADMIN           | **Required.** Specifies the location of the tnsnames.ora including the database connection strings. Defaults to "/etc/icinga2/plugin-configs". Can be overridden by setting the custom attribute `oracle_tns_admin`.
+Name            | Description
+----------------|------------
+ORACLE_HOME     | **Required.** Specifies the location of the oracle instant client libraries. Defaults to "/usr/lib/oracle/11.2/client64/lib". Can be overridden by setting the custom attribute `oracle_home`.
+LD_LIBRARY_PATH | **Required.** Specifies the location of the oracle instant client libraries for the run-time shared library loader. Defaults to "/usr/lib/oracle/11.2/client64/lib". Can be overridden by setting the custom attribute `oracle_ld_library_path`.
+TNS_ADMIN       | **Required.** Specifies the location of the tnsnames.ora including the database connection strings. Defaults to "/etc/icinga2/plugin-configs". Can be overridden by setting the custom attribute `oracle_tns_admin`.
 
 ## postgres <a id="postgres"></a>
 
@@ -177,8 +177,8 @@ The Git repository is located on [GitHub](https://github.com/bucardo/check_postg
 
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
-Name                             | Description
----------------------------------|------------------------------------------------------------------------------------------------------------------------------
+Name                 | Description
+---------------------|------------
 postgres_host        | **Optional.** Specifies the database hostname or address. Defaults to "$address$" or "$address6$" if the `address` attribute is not set. If "postgres_unixsocket" is set to true, falls back to unix socket.
 postgres_port        | **Optional.** Specifies the database port. Defaults to 5432.
 postgres_dbname      | **Optional.** Specifies the database name to connect to. Defaults to "postgres" or "template1".
@@ -207,27 +207,27 @@ uses the `pymongo` Python library to monitor a [MongoDB](https://docs.mongodb.co
 
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
-Name                             | Description
----------------------------------|------------------------------------------------------------------------------------------------------------------------------
-mongodb_host                     | **Required.** Specifies the hostname or address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
-mongodb_port                     | **Required.** The port mongodb is running on.
-mongodb_user                     | **Optional.** The username you want to login as.
-mongodb_passwd                   | **Optional.** The password you want to use for that user.
-mongodb_authdb                   | **Optional.** The database you want to authenticate against.
-mongodb_warning                  | **Optional.** The warning threshold we want to set.
-mongodb_critical                 | **Optional.** The critical threshold we want to set.
-mongodb_action                   | **Required.** The action you want to take.
-mongodb_maxlag                   | **Optional.** Get max replication lag (for replication_lag action only).
-mongodb_mappedmemory             | **Optional.** Get mapped memory instead of resident (if resident memory can not be read).
-mongodb_perfdata                 | **Optional.** Enable output of Nagios performance data.
-mongodb_database                 | **Optional.** Specify the database to check.
-mongodb_alldatabases             | **Optional.** Check all databases (action database_size).
-mongodb_ssl                      | **Optional.** Connect using SSL.
-mongodb_replicaset               | **Optional.** Connect to replicaset.
-mongodb_replcheck                | **Optional.** If set to true, will enable the mongodb_replicaset value needed for "replica_primary" check.
-mongodb_querytype                | **Optional.** The query type to check [query\|insert\|update\|delete\|getmore\|command] from queries_per_second.
-mongodb_collection               | **Optional.** Specify the collection to check.
-mongodb_sampletime               | **Optional.** Time used to sample number of pages faults.
+Name                 | Description
+---------------------|------------
+mongodb_host         | **Required.** Specifies the hostname or address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+mongodb_port         | **Required.** The port mongodb is running on.
+mongodb_user         | **Optional.** The username you want to login as.
+mongodb_passwd       | **Optional.** The password you want to use for that user.
+mongodb_authdb       | **Optional.** The database you want to authenticate against.
+mongodb_warning      | **Optional.** The warning threshold we want to set.
+mongodb_critical     | **Optional.** The critical threshold we want to set.
+mongodb_action       | **Required.** The action you want to take.
+mongodb_maxlag       | **Optional.** Get max replication lag (for replication_lag action only).
+mongodb_mappedmemory | **Optional.** Get mapped memory instead of resident (if resident memory can not be read).
+mongodb_perfdata     | **Optional.** Enable output of Nagios performance data.
+mongodb_database     | **Optional.** Specify the database to check.
+mongodb_alldatabases | **Optional.** Check all databases (action database_size).
+mongodb_ssl          | **Optional.** Connect using SSL.
+mongodb_replicaset   | **Optional.** Connect to replicaset.
+mongodb_replcheck    | **Optional.** If set to true, will enable the mongodb_replicaset value needed for "replica_primary" check.
+mongodb_querytype    | **Optional.** The query type to check [query\|insert\|update\|delete\|getmore\|command] from queries_per_second.
+mongodb_collection   | **Optional.** Specify the collection to check.
+mongodb_sampletime   | **Optional.** Time used to sample number of pages faults.
 
 ## elasticsearch <a id="elasticsearch"></a>
 
@@ -237,7 +237,7 @@ uses the HTTP API to monitor an [Elasticsearch](https://www.elastic.co/products/
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
 Name                         | Description
------------------------------|-------------------------------------------------------------------------------------------------------
+-----------------------------|------------
 elasticsearch_host           | **Optional.** Hostname or network address to probe. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
 elasticsearch_failuredomain  | **Optional.** A comma-separated list of ElasticSearch attributes that make up your cluster's failure domain.
 elasticsearch_masternodes    | **Optional.** Issue a warning if the number of master-eligible nodes in the cluster drops below this number. By default, do not monitor the number of nodes in the cluster.
@@ -255,7 +255,7 @@ also possible to test data in a specified key and calculate averages or summarie
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
 Name                     | Description
--------------------------|--------------------------------------------------------------------------------------------------------------
+-------------------------|------------
 redis_hostname           | **Required.** Hostname or IP Address to check. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
 redis_port               | **Optional.** Port number to query. Default to "6379".
 redis_database           | **Optional.** Database name (usually a number) to query, needed for **redis_query**.

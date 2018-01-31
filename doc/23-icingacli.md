@@ -11,12 +11,12 @@ and executed as `icingacli businessprocess` CLI command.
 
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
-Name                    	          | Description
-------------------------------------------|-----------------------------------------------------------------------------------------
-icingacli_businessprocess_process         | **Required.** Business process to monitor.
-icingacli_businessprocess_config          | **Optional.** Configuration file containing your business process without file extension.
-icingacli_businessprocess_details         | **Optional.** Get details for root cause analysis. Defaults to false.
-icingacli_businessprocess_statetype       | **Optional.** Define which state type to look at, `soft` or `hard`. Overrides the default value inside the businessprocess module, if configured.
+Name                                | Description
+------------------------------------|------------
+icingacli_businessprocess_process   | **Required.** Business process to monitor.
+icingacli_businessprocess_config    | **Optional.** Configuration file containing your business process without file extension.
+icingacli_businessprocess_details   | **Optional.** Get details for root cause analysis. Defaults to false.
+icingacli_businessprocess_statetype | **Optional.** Define which state type to look at, `soft` or `hard`. Overrides the default value inside the businessprocess module, if configured.
 
 ## Director <a id="icingacli-director"></a>
 
@@ -24,7 +24,7 @@ This subcommand is provided by the [director module](https://github.com/Icinga/i
 
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
-Name                                      | Description
-------------------------------------------|-----------------------------------------------------------------------------------------
-icingacli_director_check                  | **Optional.** Run only a specific test suite.
-icingacli_director_db                     | **Optional.** Use a specific Icinga Web DB resource.
+Name                     | Description
+-------------------------|------------
+icingacli_director_check | **Optional.** Run only a specific test suite.
+icingacli_director_db    | **Optional.** Use a specific Icinga Web DB resource.

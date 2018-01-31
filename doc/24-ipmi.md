@@ -12,7 +12,7 @@ for installation and configuration details.
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
 Name                             | Description
----------------------------------|-----------------------------------------------------------------------------------------------------
+---------------------------------|------------
 ipmi_address                     | **Required.** Specifies the remote host (IPMI device) to check. Defaults to "$address$".
 ipmi_config_file                 | **Optional.** Path to the FreeIPMI configuration file. It should contain IPMI username, IPMI password, and IPMI privilege-level.
 ipmi_username                    | **Optional.** The IPMI username.
@@ -39,12 +39,12 @@ The `ipmi-alive` check commands allows you to create a ping check for the IPMI I
 
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
-Name                             | Description
----------------------------------|-----------------------------------------------------------------------------------------------------
-ping_address                     | **Optional.** The address of the IPMI interface. Defaults to "$address$" if the IPMI interface's `address` attribute is set, "$address6$" otherwise.
-ping_wrta                        | **Optional.** The RTA warning threshold in milliseconds. Defaults to 5000.
-ping_wpl                         | **Optional.** The packet loss warning threshold in %. Defaults to 100.
-ping_crta                        | **Optional.** The RTA critical threshold in milliseconds. Defaults to 5000.
-ping_cpl                         | **Optional.** The packet loss critical threshold in %. Defaults to 100.
-ping_packets                     | **Optional.** The number of packets to send. Defaults to 1.
-ping_timeout                     | **Optional.** The plugin timeout in seconds. Defaults to 0 (no timeout).
+Name         | Description
+-------------|------------
+ping_address | **Optional.** The address of the IPMI interface. Defaults to "$address$" if the IPMI interface's `address` attribute is set, "$address6$" otherwise.
+ping_wrta    | **Optional.** The RTA warning threshold in milliseconds. Defaults to 5000.
+ping_wpl     | **Optional.** The packet loss warning threshold in %. Defaults to 100.
+ping_crta    | **Optional.** The RTA critical threshold in milliseconds. Defaults to 5000.
+ping_cpl     | **Optional.** The packet loss critical threshold in %. Defaults to 100.
+ping_packets | **Optional.** The number of packets to send. Defaults to 1.
+ping_timeout | **Optional.** The plugin timeout in seconds. Defaults to 0 (no timeout).

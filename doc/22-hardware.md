@@ -22,26 +22,26 @@ specifying the `hpasm_hostname` always enables remote checks.
 
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
-Name                    	| Description
---------------------------------|-----------------------------------------------------------------------
-hpasm_hostname			| **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
-hpasm_community			| **Optional.** SNMP community of the server (SNMP v1/2 only).
-hpasm_protocol			| **Optional.** The SNMP protocol to use (default: 2c, other possibilities: 1,3).
-hpasm_port			| **Optional.** The SNMP port to use (default: 161).
-hpasm_blacklist			| **Optional.** Blacklist some (missing/failed) components.
-hpasm_ignore-dimms		| **Optional.** Ignore "N/A"-DIMM status on misc. servers (e.g. older DL320).
-hpasm_ignore-fan-redundancy	| **Optional.** Ignore missing redundancy partners.
-hpasm_customthresholds		| **Optional.** Use custom thresholds for certain temperatures.
-hpasm_eventrange		| **Optional.** Period of time before critical IML events respectively become warnings or vanish. A range is described as a number and a unit (s, m, h, d), e.g. --eventrange 1h/20m.
-hpasm_perfdata			| **Optional.** Output performance data. If your performance data string becomes too long and is truncated by Nagios, then you can use --perfdata=short instead. This will output temperature tags without location information.
-hpasm_username			| **Optional.** The securityName for the USM security model (SNMPv3 only).
-hpasm_authpassword		| **Optional.** The authentication password for SNMPv3.
-hpasm_authprotocol		| **Optional.** The authentication protocol for SNMPv3 (md5\|sha).
-hpasm_privpassword		| **Optional.** The password for authPriv security level.
-hpasm_privprotocol		| **Optional.** The private protocol for SNMPv3 (des\|aes\|aes128\|3des\|3desde).
-hpasm_servertype		| **Optional.** The type of the server: proliant (default) or bladesystem.
-hpasm_eval-nics			| **Optional.** Check network interfaces (and groups). Try it and report me whyt you think about it. I need to build up some know how on this subject. If you get an error and think, it is not justified for your configuration, please tell me about it. (always send the output of "snmpwalk -On .... 1.3.6.1.4.1.232" and a description how you setup your nics and why it is correct opposed to the plugins error message.
-hpasm_remote			| **Optional.** Run remote SNMP checks if enabled. Otherwise checks are executed locally using the `hpasmcli` binary. Defaults to `true`.
+Name                        | Description
+----------------------------|------------
+hpasm_hostname              | **Optional.** The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+hpasm_community             | **Optional.** SNMP community of the server (SNMP v1/2 only).
+hpasm_protocol              | **Optional.** The SNMP protocol to use (default: 2c, other possibilities: 1,3).
+hpasm_port                  | **Optional.** The SNMP port to use (default: 161).
+hpasm_blacklist             | **Optional.** Blacklist some (missing/failed) components.
+hpasm_ignore-dimms          | **Optional.** Ignore "N/A"-DIMM status on misc. servers (e.g. older DL320).
+hpasm_ignore-fan-redundancy | **Optional.** Ignore missing redundancy partners.
+hpasm_customthresholds      | **Optional.** Use custom thresholds for certain temperatures.
+hpasm_eventrange            | **Optional.** Period of time before critical IML events respectively become warnings or vanish. A range is described as a number and a unit (s, m, h, d), e.g. --eventrange 1h/20m.
+hpasm_perfdata              | **Optional.** Output performance data. If your performance data string becomes too long and is truncated by Nagios, then you can use --perfdata=short instead. This will output temperature tags without location information.
+hpasm_username              | **Optional.** The securityName for the USM security model (SNMPv3 only).
+hpasm_authpassword          | **Optional.** The authentication password for SNMPv3.
+hpasm_authprotocol          | **Optional.** The authentication protocol for SNMPv3 (md5\|sha).
+hpasm_privpassword          | **Optional.** The password for authPriv security level.
+hpasm_privprotocol          | **Optional.** The private protocol for SNMPv3 (des\|aes\|aes128\|3des\|3desde).
+hpasm_servertype            | **Optional.** The type of the server: proliant (default) or bladesystem.
+hpasm_eval-nics             | **Optional.** Check network interfaces (and groups). Try it and report me whyt you think about it. I need to build up some know how on this subject. If you get an error and think, it is not justified for your configuration, please tell me about it. (always send the output of "snmpwalk -On .... 1.3.6.1.4.1.232" and a description how you setup your nics and why it is correct opposed to the plugins error message.
+hpasm_remote                | **Optional.** Run remote SNMP checks if enabled. Otherwise checks are executed locally using the `hpasmcli` binary. Defaults to `true`.
 
 ## openmanage <a id="openmanage"></a>
 
@@ -56,33 +56,33 @@ temperature probes etc., and gives an alert if any of the components are faulty 
 
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
-Name                    	| Description
---------------------------------|-----------------------------------------------------------------------
-openmanage_all			| **Optional.** Check everything, even log content
-openmanage_blacklist		| **Optional.** Blacklist missing and/or failed components
-openmanage_check		| **Optional.** Fine-tune which components are checked
-openmanage_community		| **Optional.** SNMP community string [default=public]
-openmanage_config		| **Optional.** Specify configuration file
-openmanage_critical		| **Optional.** Custom temperature critical limits
-openmanage_extinfo		| **Optional.** Append system info to alerts
-openmanage_fahrenheit		| **Optional.** Use Fahrenheit as temperature unit
-openmanage_hostname		| **Optional.** Hostname or IP (required for SNMP)
-openmanage_htmlinfo		| **Optional.** HTML output with clickable links
-openmanage_info			| **Optional.** Prefix any alerts with the service tag
-openmanage_ipv6			| **Optional.** Use IPv6 instead of IPv4 [default=no]
-openmanage_legacy_perfdata	| **Optional.** Legacy performance data output
-openmanage_no_storage		| **Optional.** Don't check storage
-openmanage_only			| **Optional.** Only check a certain component or alert type
-openmanage_perfdata		| **Optional.** Output performance data [default=no]
-openmanage_port			| **Optional.** SNMP port number [default=161]
-openmanage_protocol		| **Optional.** SNMP protocol version [default=2c]
-openmanage_short_state		| **Optional.** Prefix alerts with alert state abbreviated
-openmanage_show_blacklist	| **Optional.** Show blacklistings in OK output
-openmanage_state		| **Optional.** Prefix alerts with alert state
-openmanage_tcp			| **Optional.** Use TCP instead of UDP [default=no]
-openmanage_timeout		| **Optional.** Plugin timeout in seconds [default=30]
-openmanage_vdisk_critical	| **Optional.** Make any alerts on virtual disks critical
-openmanage_warning		| **Optional.** Custom temperature warning limits
+Name                       | Description
+---------------------------|------------
+openmanage_all             | **Optional.** Check everything, even log content
+openmanage_blacklist       | **Optional.** Blacklist missing and/or failed components
+openmanage_check           | **Optional.** Fine-tune which components are checked
+openmanage_community       | **Optional.** SNMP community string [default=public]
+openmanage_config          | **Optional.** Specify configuration file
+openmanage_critical        | **Optional.** Custom temperature critical limits
+openmanage_extinfo         | **Optional.** Append system info to alerts
+openmanage_fahrenheit      | **Optional.** Use Fahrenheit as temperature unit
+openmanage_hostname        | **Optional.** Hostname or IP (required for SNMP)
+openmanage_htmlinfo        | **Optional.** HTML output with clickable links
+openmanage_info            | **Optional.** Prefix any alerts with the service tag
+openmanage_ipv6            | **Optional.** Use IPv6 instead of IPv4 [default=no]
+openmanage_legacy_perfdata | **Optional.** Legacy performance data output
+openmanage_no_storage      | **Optional.** Don't check storage
+openmanage_only            | **Optional.** Only check a certain component or alert type
+openmanage_perfdata        | **Optional.** Output performance data [default=no]
+openmanage_port            | **Optional.** SNMP port number [default=161]
+openmanage_protocol        | **Optional.** SNMP protocol version [default=2c]
+openmanage_short_state     | **Optional.** Prefix alerts with alert state abbreviated
+openmanage_show_blacklist  | **Optional.** Show blacklistings in OK output
+openmanage_state           | **Optional.** Prefix alerts with alert state
+openmanage_tcp             | **Optional.** Use TCP instead of UDP [default=no]
+openmanage_timeout         | **Optional.** Plugin timeout in seconds [default=30]
+openmanage_vdisk_critical  | **Optional.** Make any alerts on virtual disks critical
+openmanage_warning         | **Optional.** Custom temperature warning limits
 
 ## adaptec-raid <a id="adaptec-raid"></a>
 
@@ -91,10 +91,10 @@ uses the `arcconf` binary to monitor Adaptec RAID controllers.
 
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
-Name                            | Description
---------------------------------|-----------------------------------------------------------------------
-adaptec_controller_number       | **Required.** Controller number to monitor.
-arcconf_path                    | **Required.** Path to the `arcconf` binary, e.g. "/sbin/arcconf".
+Name                      | Description
+--------------------------|------------
+adaptec_controller_number | **Required.** Controller number to monitor.
+arcconf_path              | **Required.** Path to the `arcconf` binary, e.g. "/sbin/arcconf".
 
 ## lsi-raid <a id="lsi-raid"></a>
 
@@ -103,10 +103,10 @@ uses the `storcli` binary to monitor MegaRAID RAID controllers.
 
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
-Name                            | Description
---------------------------------|-----------------------------------------------------------------------
-lsi_controller_number           | **Required.** Controller number to monitor.
-storcli_path                    | **Required.** Path to the `storcli` binary, e.g. "/usr/sbin/storcli".
+Name                  | Description
+----------------------|------------
+lsi_controller_number | **Required.** Controller number to monitor.
+storcli_path          | **Required.** Path to the `storcli` binary, e.g. "/usr/sbin/storcli".
 
 ## smart-attributes <a id="smart-attributes"></a>
 
@@ -115,7 +115,7 @@ uses the `smartctl` binary to monitor SMART values of SSDs and HDDs.
 
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
-Name                            | Description
---------------------------------|-----------------------------------------------------------------------
-smart_attributes_config_path    | **Required.** Path to the smart attributes config file (e.g. check_smartdb.json).
-smart_attributes_device         | **Required.** Device name (e.g. /dev/sda) to monitor.
+Name                         | Description
+-----------------------------|------------
+smart_attributes_config_path | **Required.** Path to the smart attributes config file (e.g. check_smartdb.json).
+smart_attributes_device      | **Required.** Device name (e.g. /dev/sda) to monitor.

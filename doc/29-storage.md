@@ -11,7 +11,7 @@ The plugin requires `sudo` permissions.
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
 Name                       | Description
----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------|------------
 glusterfs_perfdata         | **Optional.** Print perfdata of all or the specified volume.
 glusterfs_warnonfailedheal | **Optional.** Warn if the *heal-failed* log contains entries. The log can be cleared by restarting glusterd.
 glusterfs_volume           | **Optional.** Only check the specified *VOLUME*. If --volume is not set, all volumes are checked.

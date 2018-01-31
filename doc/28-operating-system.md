@@ -12,7 +12,7 @@ compared to thresholds. More details can be found on [this blog entry](http://sy
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
 Name         | Description
--------------|-----------------------------------------------------------------------------------------------------------------------
+-------------|------------
 mem_used     | **Optional.** Tell the plugin to check for used memory in opposite of **mem_free**. Must specify one of these as true.
 mem_free     | **Optional.** Tell the plugin to check for free memory in opposite of **mem_used**. Must specify one of these as true.
 mem_cache    | **Optional.** If set to true, plugin will count cache as free memory. Defaults to false.
@@ -26,8 +26,8 @@ is provided by the `nagios-plugin-contrib` package on Debian/Ubuntu.
 
 Custom attributes:
 
-Name                       | Description
----------------------------|-------------
+Name                    | Description
+------------------------|------------
 running_kernel_use_sudo | Whether to run the plugin with `sudo`. Defaults to false except on Ubuntu where it defaults to true.
 
 ## iostats <a id="iostats"></a>
@@ -38,9 +38,9 @@ so you can use a grapher for baselining before setting your own.
 
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
-Name           | Description
----------------|-----------------------------------------------------------------------------------------------------------------------
-iostats_disk            | **Required.** The device to monitor without path. e.g. sda or vda. (default: sda).
+Name                   | Description
+-----------------------|------------
+iostats_disk           | **Required.** The device to monitor without path. e.g. sda or vda. (default: sda).
 iostats_warning_tps    | **Required.** Warning threshold for tps (default: 3000).
 iostats_warning_read   | **Required.** Warning threshold for KB/s reads (default: 50000).
 iostats_warning_write  | **Required.** Warning threshold for KB/s writes (default: 10000).
@@ -58,8 +58,8 @@ so you can use a grapher for baselining before setting your own.
 
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
-Name           | Description
----------------|-----------------------------------------------------------------------------------------------------------------------
+Name          | Description
+--------------|------------
 iostat_disk   | **Required.** The device to monitor without path. e.g. sda or vda. (default: sda).
 iostat_wtps   | **Required.** Warning threshold for tps (default: 100).
 iostat_wread  | **Required.** Warning threshold for KB/s reads (default: 100).
@@ -76,14 +76,14 @@ The plugin requires the `yum-plugin-security` package to differentiate between s
 
 Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
 
-Name                    | Description
-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-yum_all_updates         | **Optional.** Set to true to not distinguish between security and non-security updates, but returns critical for any available update. This may be used if the YUM security plugin is absent or you want to maintain every single package at the latest version. You may want to use **yum_warn_on_any_update** instead of this option. Defaults to false.
-yum_warn_on_any_update  | **Optional.** Set to true to warn if there are any (non-security) package updates available. Defaults to false.
-yum_cache_only          | **Optional.** If set to true, plugin runs entirely from cache and does not update the cache when running YUM. Useful if you have `yum makecache` cronned. Defaults to false.
-yum_no_warn_on_lock     | **Optional.** If set to true, returns OK instead of WARNING when YUM is locked and fails to check for updates due to another instance running. Defaults to false.
-yum_no_warn_on_updates  | **Optional.** If set to true, returns OK instead of WARNING even when updates are available. The plugin output still shows the number of available updates. Defaults to false.
-yum_enablerepo          | **Optional.** Explicitly enables a repository when calling YUM. Can take a comma separated list of repositories. Note that enabling repositories can lead to unexpected results, for example when protected repositories are enabled.
-yum_disablerepo         | **Optional.** Explicitly disables a repository when calling YUM. Can take a comma separated list of repositories. Note that enabling repositories can lead to unexpected results, for example when protected repositories are enabled.
-yum_installroot         | **Optional.** Specifies another installation root directory (for example a chroot).
-yum_timeout             | **Optional.** Set a timeout in seconds after which the plugin will exit (defaults to 55 seconds).
+Name                   | Description
+-----------------------|------------
+yum_all_updates        | **Optional.** Set to true to not distinguish between security and non-security updates, but returns critical for any available update. This may be used if the YUM security plugin is absent or you want to maintain every single package at the latest version. You may want to use **yum_warn_on_any_update** instead of this option. Defaults to false.
+yum_warn_on_any_update | **Optional.** Set to true to warn if there are any (non-security) package updates available. Defaults to false.
+yum_cache_only         | **Optional.** If set to true, plugin runs entirely from cache and does not update the cache when running YUM. Useful if you have `yum makecache` cronned. Defaults to false.
+yum_no_warn_on_lock    | **Optional.** If set to true, returns OK instead of WARNING when YUM is locked and fails to check for updates due to another instance running. Defaults to false.
+yum_no_warn_on_updates | **Optional.** If set to true, returns OK instead of WARNING even when updates are available. The plugin output still shows the number of available updates. Defaults to false.
+yum_enablerepo         | **Optional.** Explicitly enables a repository when calling YUM. Can take a comma separated list of repositories. Note that enabling repositories can lead to unexpected results, for example when protected repositories are enabled.
+yum_disablerepo        | **Optional.** Explicitly disables a repository when calling YUM. Can take a comma separated list of repositories. Note that enabling repositories can lead to unexpected results, for example when protected repositories are enabled.
+yum_installroot        | **Optional.** Specifies another installation root directory (for example a chroot).
+yum_timeout            | **Optional.** Set a timeout in seconds after which the plugin will exit (defaults to 55 seconds).

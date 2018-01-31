@@ -4,22 +4,22 @@ To allow a basic monitoring of Windows clients Icinga 2 comes with a set of Wind
 
 A check-commands-windows.conf comes with Icinga 2, it assumes that the Windows Plugins are installed in the PluginDir set in your constants.conf. To enable them the following include directive is needed in you icinga2.conf:
 
-	include <windows-plugins>
+```
+include <windows-plugins>
+```
 
 One of the differences between the Windows plugins and their linux counterparts is that they consistently do not require thresholds to run, functioning like dummies without.
-
 
 ## Threshold syntax <a id="windows-plugins-thresholds"></a>
 
 So not specified differently the thresholds for the plugins all follow the same pattern
 
-Threshold    | Meaning
-:------------|:----------
-"29"         | The threshold is 29.
-"!29"        | The threshold is 29, but the negative of the result is returned.
-"[10-40]"    | The threshold is a range from (including) 10 to 40, a value inside means the threshold has been exceeded.
-"![10-40]"   | Same as above, but the result is inverted.
-
+Threshold  | Meaning
+-----------|--------
+"29"       | The threshold is 29.
+"!29"      | The threshold is 29, but the negative of the result is returned.
+"[10-40]"  | The threshold is a range from (including) 10 to 40, a value inside means the threshold has been exceeded.
+"![10-40]" | Same as above, but the result is inverted.
 
 ## disk-windows <a id="windows-plugins-disk-windows"></a>
 
@@ -34,13 +34,13 @@ The data collection is instant and free disk space (default, see `disk_win_show_
 
 Custom attributes:
 
-Name                  | Description
-:---------------------|:------------
-disk_win_warn       | **Optional**. The warning threshold.
-disk_win_crit       | **Optional**. The critical threshold.
-disk_win_path       | **Optional**. Check only these paths, default checks all.
-disk_win_unit       | **Optional**. Use this unit to display disk space, thresholds are interpreted in this unit. Defaults to "mb", possible values are: b, kb, mb, gb and tb.
-disk_win_exclude    | **Optional**. Exclude these drives from check.
+Name               | Description
+-------------------|------------
+disk_win_warn      | **Optional**. The warning threshold.
+disk_win_crit      | **Optional**. The critical threshold.
+disk_win_path      | **Optional**. Check only these paths, default checks all.
+disk_win_unit      | **Optional**. Use this unit to display disk space, thresholds are interpreted in this unit. Defaults to "mb", possible values are: b, kb, mb, gb and tb.
+disk_win_exclude   | **Optional**. Exclude these drives from check.
 disk_win_show_used | **Optional**. Use used instead of free space.
 
 ## load-windows <a id="windows-plugins-load-windows"></a>
@@ -50,11 +50,10 @@ This plugin collects the inverse of the performance counter `\Processor(_Total)\
 
 Custom attributes:
 
-Name            | Description
-:---------------|:------------
+Name          | Description
+--------------|------------
 load_win_warn | **Optional**. The warning threshold.
 load_win_crit | **Optional**. The critical threshold.
-
 
 ## memory-windows <a id="windows-plugins-memory-windows"></a>
 
@@ -69,12 +68,11 @@ The memory collection is instant and free memory is used for threshold computati
 
 Custom attributes:
 
-Name              | Description
-:-----------------|:------------
+Name            | Description
+----------------|------------
 memory_win_warn | **Optional**. The warning threshold.
 memory_win_crit | **Optional**. The critical threshold.
 memory_win_unit | **Optional**. The unit to display the received value in, thresholds are interpreted in this unit. Defaults to "mb" (megabyte), possible values are: b, kb, mb, gb and tb.
-
 
 ## network-windows <a id="windows-plugins-network-windows"></a>
 
@@ -83,12 +81,11 @@ Collects the total Bytes inbound and outbound for all interfaces in one second, 
 
 Custom attributes:
 
-Name                | Description
-:-------------------|:------------
+Name              | Description
+------------------|------------
 network_win_warn  | **Optional**. The warning threshold.
 network_win_crit  | **Optional**. The critical threshold.
 network_no_isatap | **Optional**. Do not print ISATAP interfaces.
-
 
 ## perfmon-windows <a id="windows-plugins-perfmon-windows"></a>
 
@@ -99,15 +96,14 @@ To receive a list of possible Performance Counter Objects run `check_perfmon.exe
 
 Custom attributes:
 
-Name                  | Description
-:---------------------|:------------
+Name                | Description
+--------------------|------------
 perfmon_win_warn    | **Optional**. The warning threshold.
 perfmon_win_crit    | **Optional**. The critical threshold.
 perfmon_win_counter | **Required**. The Performance Counter to use. Ex. `\Processor(_Total)\% Idle Time`.
 perfmon_win_wait    | **Optional**. Time in milliseconds to wait between data collection (default: 1000).
 perfmon_win_type    | **Optional**. Format in which to expect performance values. Possible are: long, int64 and double (default).
 perfmon_win_syntax  | **Optional**. Use this in the performance output instead of `perfmon_win_counter`. Exists for graphics compatibility reasons.
-
 
 ## ping-windows <a id="windows-plugins-ping-windows"></a>
 
@@ -116,14 +112,13 @@ ping-windows should automatically detect whether `ping_win_address` is an IPv4 o
 
 Custom attributes:
 
-Name               | Description
-:------------------|:------------
+Name             | Description
+-----------------|------------
 ping_win_warn    | **Optional**. The warning threshold. RTA and package loss separated by comma.
 ping_win_crit    | **Optional**. The critical threshold. RTA and package loss separated by comma.
 ping_win_address | **Required**. An IPv4 or IPv6 address.
 ping_win_packets | **Optional**. Number of packages to send. Default: 5.
 ping_win_timeout | **Optional**. The timeout in milliseconds. Default: 1000
-
 
 ## procs-windows <a id="windows-plugins-procs-windows"></a>
 
@@ -132,12 +127,11 @@ When using `procs_win_user` this plugins needs administrative privileges to acce
 
 Custom attributes:
 
-Name             | Description
-:----------------|:------------
+Name           | Description
+---------------|------------
 procs_win_warn | **Optional**. The warning threshold.
 procs_win_crit | **Optional**. The critical threshold.
 procs_win_user | **Optional**. Count this users processes.
-
 
 ## service-windows <a id="windows-plugins-service-windows"></a>
 
@@ -146,12 +140,11 @@ This checks thresholds work different since the binary decision whether a servic
 
 Custom attributes:
 
-Name                      | Description
-:-------------------------|:------------
+Name                    | Description
+------------------------|------------
 service_win_warn        | **Optional**. Warn when service is not running.
 service_win_description | **Optional**. If this is set, `service_win_service` looks at the service description.
 service_win_service     | **Required**. Name of the service to check.
-
 
 ## swap-windows <a id="windows-plugins-swap-windows"></a>
 
@@ -160,12 +153,11 @@ The data collection is instant.
 
 Custom attributes:
 
-Name            | Description
-:---------------|:------------
+Name          | Description
+--------------|------------
 swap_win_warn | **Optional**. The warning threshold.
 swap_win_crit | **Optional**. The critical threshold.
 swap_win_unit | **Optional**. The unit to display the received value in, thresholds are interpreted in this unit. Defaults to "mb" (megabyte).
-
 
 ## update-windows <a id="windows-plugins-update-windows"></a>
 
@@ -179,22 +171,20 @@ Querying Microsoft for Windows updates can take multiple seconds to minutes. An 
 
 Custom attributes:
 
-Name                | Description
-:-------------------|:------------
+Name              | Description
+------------------|------------
 update_win_warn   | **Optional**. If set, returns warning when important updates are available.
 update_win_crit   | **Optional**. If set, return critical when important updates that require a reboot are available.
 update_win_reboot | **Optional**. Set to treat 'may need update' as 'definitely needs update'. Please Note that this is true for almost every update and is therefore not recommended.
 
-
-In contrast to most other plugins, the values of check_update's custom attributes do not set thresholds, but just enable/disable the behavior described in the table above.  
-It can be enabled/disabled for example by setting them to "true" or "false", "1" or "0" would also work.  
+In contrast to most other plugins, the values of check_update's custom attributes do not set thresholds, but just enable/disable the behavior described in the table above.
+It can be enabled/disabled for example by setting them to "true" or "false", "1" or "0" would also work.
 Thresholds will always be "1".
 
 > **Note**
 >
-> If they are enabled, performance data will be shown in the web interface.  
-> If run without the optional parameters, the plugin will output critical if any important updates are available.  
-
+> If they are enabled, performance data will be shown in the web interface.
+> If run without the optional parameters, the plugin will output critical if any important updates are available.
 
 ## uptime-windows <a id="windows-plugins-uptime-windows"></a>
 
@@ -203,12 +193,11 @@ Uses GetTickCount64 to get the uptime, so boot time is not included.
 
 Custom attributes:
 
-Name              | Description
-:-----------------|:------------
+Name            | Description
+----------------|------------
 uptime_win_warn | **Optional**. The warning threshold.
 uptime_win_crit | **Optional**. The critical threshold.
 uptime_win_unit | **Optional**. The unit to display the received value in, thresholds are interpreted in this unit. Defaults to "s"(seconds), possible values are ms (milliseconds), s, m (minutes), h (hours).
-
 
 ## users-windows <a id="windows-plugins-users-windows"></a>
 
@@ -216,7 +205,7 @@ Check command object for `check_users.exe` plugin.
 
 Custom attributes:
 
-Name             | Description
-:----------------|:------------
+Name           | Description
+---------------|------------
 users_win_warn | **Optional**. The warning threshold.
 users_win_crit | **Optional**. The critical threshold.
