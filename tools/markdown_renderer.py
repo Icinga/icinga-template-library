@@ -100,7 +100,6 @@ class MarkdownRenderer(object):
                     if self.options.get('table_borders'):
                         cells[j] = ' %s ' % ('-' * (cols[j]-2))
                     elif j == col_no - 1:
-                        print header_cols
                         cells[j] = '-' * header_cols[j]
                     else:
                         cells[j] = '-' * cols[j]
