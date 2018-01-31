@@ -36,12 +36,12 @@ Custom attributes:
 
 Name               | Description
 -------------------|------------
-disk_win_warn      | **Optional**. The warning threshold.
-disk_win_crit      | **Optional**. The critical threshold.
-disk_win_path      | **Optional**. Check only these paths, default checks all.
-disk_win_unit      | **Optional**. Use this unit to display disk space, thresholds are interpreted in this unit. Defaults to "mb", possible values are: b, kb, mb, gb and tb.
-disk_win_exclude   | **Optional**. Exclude these drives from check.
-disk_win_show_used | **Optional**. Use used instead of free space.
+disk_win_warn      | The warning threshold.
+disk_win_crit      | The critical threshold.
+disk_win_path      | Check only these paths, default checks all.
+disk_win_unit      | Use this unit to display disk space, thresholds are interpreted in this unit. Defaults to "mb", possible values are: b, kb, mb, gb and tb.
+disk_win_exclude   | Exclude these drives from check.
+disk_win_show_used | Use used instead of free space.
 
 ## load-windows <a id="windows-plugins-load-windows"></a>
 
@@ -52,8 +52,8 @@ Custom attributes:
 
 Name          | Description
 --------------|------------
-load_win_warn | **Optional**. The warning threshold.
-load_win_crit | **Optional**. The critical threshold.
+load_win_warn | The warning threshold.
+load_win_crit | The critical threshold.
 
 ## memory-windows <a id="windows-plugins-memory-windows"></a>
 
@@ -70,9 +70,9 @@ Custom attributes:
 
 Name            | Description
 ----------------|------------
-memory_win_warn | **Optional**. The warning threshold.
-memory_win_crit | **Optional**. The critical threshold.
-memory_win_unit | **Optional**. The unit to display the received value in, thresholds are interpreted in this unit. Defaults to "mb" (megabyte), possible values are: b, kb, mb, gb and tb.
+memory_win_warn | The warning threshold.
+memory_win_crit | The critical threshold.
+memory_win_unit | The unit to display the received value in, thresholds are interpreted in this unit. Defaults to "mb" (megabyte), possible values are: b, kb, mb, gb and tb.
 
 ## network-windows <a id="windows-plugins-network-windows"></a>
 
@@ -83,9 +83,9 @@ Custom attributes:
 
 Name              | Description
 ------------------|------------
-network_win_warn  | **Optional**. The warning threshold.
-network_win_crit  | **Optional**. The critical threshold.
-network_no_isatap | **Optional**. Do not print ISATAP interfaces.
+network_win_warn  | The warning threshold.
+network_win_crit  | The critical threshold.
+network_no_isatap | Do not print ISATAP interfaces.
 
 ## perfmon-windows <a id="windows-plugins-perfmon-windows"></a>
 
@@ -98,12 +98,12 @@ Custom attributes:
 
 Name                | Description
 --------------------|------------
-perfmon_win_warn    | **Optional**. The warning threshold.
-perfmon_win_crit    | **Optional**. The critical threshold.
+perfmon_win_warn    | The warning threshold.
+perfmon_win_crit    | The critical threshold.
 perfmon_win_counter | **Required**. The Performance Counter to use. Ex. `\Processor(_Total)\% Idle Time`.
-perfmon_win_wait    | **Optional**. Time in milliseconds to wait between data collection (default: 1000).
-perfmon_win_type    | **Optional**. Format in which to expect performance values. Possible are: long, int64 and double (default).
-perfmon_win_syntax  | **Optional**. Use this in the performance output instead of `perfmon_win_counter`. Exists for graphics compatibility reasons.
+perfmon_win_wait    | Time in milliseconds to wait between data collection (default: 1000).
+perfmon_win_type    | Format in which to expect performance values. Possible are: long, int64 and double (default).
+perfmon_win_syntax  | Use this in the performance output instead of `perfmon_win_counter`. Exists for graphics compatibility reasons.
 
 ## ping-windows <a id="windows-plugins-ping-windows"></a>
 
@@ -114,11 +114,11 @@ Custom attributes:
 
 Name             | Description
 -----------------|------------
-ping_win_warn    | **Optional**. The warning threshold. RTA and package loss separated by comma.
-ping_win_crit    | **Optional**. The critical threshold. RTA and package loss separated by comma.
+ping_win_warn    | The warning threshold. RTA and package loss separated by comma.
+ping_win_crit    | The critical threshold. RTA and package loss separated by comma.
 ping_win_address | **Required**. An IPv4 or IPv6 address.
-ping_win_packets | **Optional**. Number of packages to send. Default: 5.
-ping_win_timeout | **Optional**. The timeout in milliseconds. Default: 1000
+ping_win_packets | Number of packages to send. Default: 5.
+ping_win_timeout | The timeout in milliseconds. Default: 1000
 
 ## procs-windows <a id="windows-plugins-procs-windows"></a>
 
@@ -129,9 +129,9 @@ Custom attributes:
 
 Name           | Description
 ---------------|------------
-procs_win_warn | **Optional**. The warning threshold.
-procs_win_crit | **Optional**. The critical threshold.
-procs_win_user | **Optional**. Count this users processes.
+procs_win_warn | The warning threshold.
+procs_win_crit | The critical threshold.
+procs_win_user | Count this users processes.
 
 ## service-windows <a id="windows-plugins-service-windows"></a>
 
@@ -142,8 +142,8 @@ Custom attributes:
 
 Name                    | Description
 ------------------------|------------
-service_win_warn        | **Optional**. Warn when service is not running.
-service_win_description | **Optional**. If this is set, `service_win_service` looks at the service description.
+service_win_warn        | Warn when service is not running.
+service_win_description | If this is set, `service_win_service` looks at the service description.
 service_win_service     | **Required**. Name of the service to check.
 
 ## swap-windows <a id="windows-plugins-swap-windows"></a>
@@ -155,9 +155,9 @@ Custom attributes:
 
 Name          | Description
 --------------|------------
-swap_win_warn | **Optional**. The warning threshold.
-swap_win_crit | **Optional**. The critical threshold.
-swap_win_unit | **Optional**. The unit to display the received value in, thresholds are interpreted in this unit. Defaults to "mb" (megabyte).
+swap_win_warn | The warning threshold.
+swap_win_crit | The critical threshold.
+swap_win_unit | The unit to display the received value in, thresholds are interpreted in this unit. Defaults to "mb" (megabyte).
 
 ## update-windows <a id="windows-plugins-update-windows"></a>
 
@@ -173,9 +173,9 @@ Custom attributes:
 
 Name              | Description
 ------------------|------------
-update_win_warn   | **Optional**. If set, returns warning when important updates are available.
-update_win_crit   | **Optional**. If set, return critical when important updates that require a reboot are available.
-update_win_reboot | **Optional**. Set to treat 'may need update' as 'definitely needs update'. Please Note that this is true for almost every update and is therefore not recommended.
+update_win_warn   | If set, returns warning when important updates are available.
+update_win_crit   | If set, return critical when important updates that require a reboot are available.
+update_win_reboot | Set to treat 'may need update' as 'definitely needs update'. Please Note that this is true for almost every update and is therefore not recommended.
 
 In contrast to most other plugins, the values of check_update's custom attributes do not set thresholds, but just enable/disable the behavior described in the table above.
 It can be enabled/disabled for example by setting them to "true" or "false", "1" or "0" would also work.
@@ -195,9 +195,9 @@ Custom attributes:
 
 Name            | Description
 ----------------|------------
-uptime_win_warn | **Optional**. The warning threshold.
-uptime_win_crit | **Optional**. The critical threshold.
-uptime_win_unit | **Optional**. The unit to display the received value in, thresholds are interpreted in this unit. Defaults to "s"(seconds), possible values are ms (milliseconds), s, m (minutes), h (hours).
+uptime_win_warn | The warning threshold.
+uptime_win_crit | The critical threshold.
+uptime_win_unit | The unit to display the received value in, thresholds are interpreted in this unit. Defaults to "s"(seconds), possible values are ms (milliseconds), s, m (minutes), h (hours).
 
 ## users-windows <a id="windows-plugins-users-windows"></a>
 
@@ -207,5 +207,5 @@ Custom attributes:
 
 Name           | Description
 ---------------|------------
-users_win_warn | **Optional**. The warning threshold.
-users_win_crit | **Optional**. The critical threshold.
+users_win_warn | The warning threshold.
+users_win_crit | The critical threshold.

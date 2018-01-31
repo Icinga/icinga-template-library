@@ -12,10 +12,10 @@ Custom attributes passed as [command parameters](03-monitoring-basics.md#command
 
 Name                       | Description
 ---------------------------|------------
-glusterfs_perfdata         | **Optional.** Print perfdata of all or the specified volume.
-glusterfs_warnonfailedheal | **Optional.** Warn if the *heal-failed* log contains entries. The log can be cleared by restarting glusterd.
-glusterfs_volume           | **Optional.** Only check the specified *VOLUME*. If --volume is not set, all volumes are checked.
-glusterfs_disk_warning     | **Optional.** Warn if disk usage is above *DISKWARN*. Defaults to 90 (percent).
-glusterfs_disk_critical    | **Optional.** Return a critical error if disk usage is above *DISKCRIT*. Defaults to 95 (percent).
-glusterfs_inode_warning    | **Optional.** Warn if inode usage is above *DISKWARN*. Defaults to 90 (percent).
-glusterfs_inode_critical   | **Optional.** Return a critical error if inode usage is above *DISKCRIT*. Defaults to 95 (percent).
+glusterfs_perfdata         | Print perfdata of all or the specified volume.
+glusterfs_warnonfailedheal | Warn if the *heal-failed* log contains entries. The log can be cleared by restarting glusterd.
+glusterfs_volume           | Only check the specified *VOLUME*. If --volume is not set, all volumes are checked.
+glusterfs_disk_warning     | Warn if disk usage is above *DISKWARN*. Defaults to 90 (percent).
+glusterfs_disk_critical    | Return a critical error if disk usage is above *DISKCRIT*. Defaults to 95 (percent).
+glusterfs_inode_warning    | Warn if inode usage is above *DISKWARN*. Defaults to 90 (percent).
+glusterfs_inode_critical   | Return a critical error if inode usage is above *DISKCRIT*. Defaults to 95 (percent).

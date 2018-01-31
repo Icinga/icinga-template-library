@@ -59,7 +59,7 @@ Custom attributes passed as [command parameters](03-monitoring-basics.md#command
 
 Name               | Description
 -------------------|------------
-icinga_min_version | **Optional.** Required minimum Icinga 2 version, e.g. `2.8.0`. If not satisfied, the state changes to `Critical`. Release packages only.
+icinga_min_version | Required minimum Icinga 2 version, e.g. `2.8.0`. If not satisfied, the state changes to `Critical`. Release packages only.
 
 ## cluster <a id="icinga-cluster"></a>
 
@@ -77,8 +77,8 @@ Custom attributes passed as [command parameters](03-monitoring-basics.md#command
 Name                 | Description
 ---------------------|------------
 cluster_zone         | **Required.** The zone name. Defaults to `$host.name$`.
-cluster_lag_warning  | **Optional.** Warning threshold for log lag in seconds. Applies if the log lag is greater than the threshold.
-cluster_lag_critical | **Optional.** Critical threshold for log lag in seconds. Applies if the log lag is greater than the threshold.
+cluster_lag_warning  | Warning threshold for log lag in seconds. Applies if the log lag is greater than the threshold.
+cluster_lag_critical | Critical threshold for log lag in seconds. Applies if the log lag is greater than the threshold.
 
 ## ido <a id="icinga-ido"></a>
 
@@ -90,10 +90,10 @@ Name                         | Description
 -----------------------------|------------
 ido_type                     | **Required.** The type of the IDO connection object. Can be either "IdoMysqlConnection" or "IdoPgsqlConnection".
 ido_name                     | **Required.** The name of the IDO connection object.
-ido_queries_warning          | **Optional.** Warning threshold for queries/s. Applies if the rate is lower than the threshold.
-ido_queries_critical         | **Optional.** Critical threshold for queries/s. Applies if the rate is lower than the threshold.
-ido_pending_queries_warning  | **Optional.** Warning threshold for pending queries. Applies if pending queries are higher than the threshold. Supersedes the `ido_queries` thresholds above.
-ido_pending_queries_critical | **Optional.** Critical threshold for pending queries. Applies if pending queries are higher than the threshold. Supersedes the `ido_queries` thresholds above.
+ido_queries_warning          | Warning threshold for queries/s. Applies if the rate is lower than the threshold.
+ido_queries_critical         | Critical threshold for queries/s. Applies if the rate is lower than the threshold.
+ido_pending_queries_warning  | Warning threshold for pending queries. Applies if pending queries are higher than the threshold. Supersedes the `ido_queries` thresholds above.
+ido_pending_queries_critical | Critical threshold for pending queries. Applies if pending queries are higher than the threshold. Supersedes the `ido_queries` thresholds above.
 
 ## dummy <a id="dummy"></a>
 
@@ -107,8 +107,8 @@ Custom attributes passed as [command parameters](03-monitoring-basics.md#command
 
 Name        | Description
 ------------|------------
-dummy_state | **Optional.** The state. Can be one of 0 (ok), 1 (warning), 2 (critical) and 3 (unknown). Defaults to 0.
-dummy_text  | **Optional.** Plugin output. Defaults to "Check was successful.".
+dummy_state | The state. Can be one of 0 (ok), 1 (warning), 2 (critical) and 3 (unknown). Defaults to 0.
+dummy_text  | Plugin output. Defaults to "Check was successful.".
 
 ## random <a id="random"></a>
 

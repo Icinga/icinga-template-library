@@ -14,9 +14,9 @@ Custom attributes passed as [command parameters](03-monitoring-basics.md#command
 Name                                | Description
 ------------------------------------|------------
 icingacli_businessprocess_process   | **Required.** Business process to monitor.
-icingacli_businessprocess_config    | **Optional.** Configuration file containing your business process without file extension.
-icingacli_businessprocess_details   | **Optional.** Get details for root cause analysis. Defaults to false.
-icingacli_businessprocess_statetype | **Optional.** Define which state type to look at, `soft` or `hard`. Overrides the default value inside the businessprocess module, if configured.
+icingacli_businessprocess_config    | Configuration file containing your business process without file extension.
+icingacli_businessprocess_details   | Get details for root cause analysis. Defaults to false.
+icingacli_businessprocess_statetype | Define which state type to look at, `soft` or `hard`. Overrides the default value inside the businessprocess module, if configured.
 
 ## Director <a id="icingacli-director"></a>
 
@@ -26,5 +26,5 @@ Custom attributes passed as [command parameters](03-monitoring-basics.md#command
 
 Name                     | Description
 -------------------------|------------
-icingacli_director_check | **Optional.** Run only a specific test suite.
-icingacli_director_db    | **Optional.** Use a specific Icinga Web DB resource.
+icingacli_director_check | Run only a specific test suite.
+icingacli_director_db    | Use a specific Icinga Web DB resource.
