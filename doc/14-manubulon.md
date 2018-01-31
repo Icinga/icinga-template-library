@@ -63,7 +63,7 @@ snmp_v3_use_privpass    | **Optional.** Define to use SNMP version 3 priv passwo
 snmp_v3_use_authprotocol| **Optional.** Define to use SNMP version 3 authentication protocol. Defaults to false.
 snmp_authprotocol       | **Optional.** SNMP version 3 authentication protocol. Defaults to "md5,des".
 snmp_privpass           | **Required.** SNMP version 3 priv password. No value defined as default.
-snmp_env_type           | **Optional.** Environment Type [cisco|nokia|bc|iron|foundry|linux]. Defaults to "cisco".
+snmp_env_type           | **Optional.** Environment Type, one of cisco, nokia, bc, iron, foundry or linux. Defaults to "cisco".
 snmp_env_fan            | **Optional.** Minimum fan rpm value (only needed for 'iron' & 'linux')
 snmp_env_celsius        | **Optional.** Maximum temp in degrees celsius (only needed for 'iron' & 'linux')
 snmp_perf               | **Optional.** Enable perfdata values. Defaults to true.
