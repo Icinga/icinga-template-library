@@ -33,6 +33,51 @@ db2_health_report          | Report can be used to output only the bad news. Pos
 db2_health_env_db2_home    | **Required.** Specifies the location of the db2 client libraries as environment variable `DB2_HOME`. Defaults to "/opt/ibm/db2/V10.5".
 db2_health_env_db2_version | Specifies the DB2 version as environment variable `DB2_VERSION`.
 
+## elasticsearch <a id="elasticsearch"></a>
+
+The [check_elasticsearch](https://github.com/anchor/nagios-plugin-elasticsearch) plugin
+uses the HTTP API to monitor an [Elasticsearch](https://www.elastic.co/products/elasticsearch) node.
+
+Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
+
+Name                         | Description
+-----------------------------|------------
+elasticsearch_host           | Hostname or network address to probe. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+elasticsearch_failuredomain  | A comma-separated list of ElasticSearch attributes that make up your cluster's failure domain.
+elasticsearch_masternodes    | Issue a warning if the number of master-eligible nodes in the cluster drops below this number. By default, do not monitor the number of nodes in the cluster.
+elasticsearch_port           | TCP port to probe.  The ElasticSearch API should be listening here. Defaults to 9200.
+elasticsearch_prefix         | Optional prefix (e.g. 'es') for the ElasticSearch API. Defaults to ''.
+elasticsearch_yellowcritical | Instead of issuing a 'warning' for a yellow cluster state, issue a 'critical' alert. Defaults to false.
+
+## mongodb <a id="mongodb"></a>
+
+The [check_mongodb.py](https://github.com/mzupan/nagios-plugin-mongodb) plugin
+uses the `pymongo` Python library to monitor a [MongoDB](https://docs.mongodb.com/manual/) instance.
+
+Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
+
+Name                 | Description
+---------------------|------------
+mongodb_host         | **Required.** Specifies the hostname or address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+mongodb_port         | **Required.** The port mongodb is running on.
+mongodb_user         | The username you want to login as.
+mongodb_passwd       | The password you want to use for that user.
+mongodb_authdb       | The database you want to authenticate against.
+mongodb_warning      | The warning threshold we want to set.
+mongodb_critical     | The critical threshold we want to set.
+mongodb_action       | **Required.** The action you want to take.
+mongodb_maxlag       | Get max replication lag (for replication_lag action only).
+mongodb_mappedmemory | Get mapped memory instead of resident (if resident memory can not be read).
+mongodb_perfdata     | Enable output of Nagios performance data.
+mongodb_database     | Specify the database to check.
+mongodb_alldatabases | Check all databases (action database_size).
+mongodb_ssl          | Connect using SSL.
+mongodb_replicaset   | Connect to replicaset.
+mongodb_replcheck    | If set to true, will enable the mongodb_replicaset value needed for "replica_primary" check.
+mongodb_querytype    | The query type to check [query\|insert\|update\|delete\|getmore\|command] from queries_per_second.
+mongodb_collection   | Specify the collection to check.
+mongodb_sampletime   | Time used to sample number of pages faults.
+
 ## mssql_health <a id="mssql_health"></a>
 
 The [check_mssql_health](https://labs.consol.de/nagios/check_mssql_health/index.html) plugin
@@ -199,51 +244,6 @@ postgres_query       | Query for "custom_query" action.
 postgres_valtype     | Value type of query result for "custom_query".
 postgres_reverse     | If "postgres_reverse" is set, warning and critical values are reversed for "custom_query" action.
 postgres_tempdir     | Specify directory for temporary files. The default directory is dependent on the OS. More details [here](https://perldoc.perl.org/File/Spec.html).
-
-## mongodb <a id="mongodb"></a>
-
-The [check_mongodb.py](https://github.com/mzupan/nagios-plugin-mongodb) plugin
-uses the `pymongo` Python library to monitor a [MongoDB](https://docs.mongodb.com/manual/) instance.
-
-Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
-
-Name                 | Description
----------------------|------------
-mongodb_host         | **Required.** Specifies the hostname or address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
-mongodb_port         | **Required.** The port mongodb is running on.
-mongodb_user         | The username you want to login as.
-mongodb_passwd       | The password you want to use for that user.
-mongodb_authdb       | The database you want to authenticate against.
-mongodb_warning      | The warning threshold we want to set.
-mongodb_critical     | The critical threshold we want to set.
-mongodb_action       | **Required.** The action you want to take.
-mongodb_maxlag       | Get max replication lag (for replication_lag action only).
-mongodb_mappedmemory | Get mapped memory instead of resident (if resident memory can not be read).
-mongodb_perfdata     | Enable output of Nagios performance data.
-mongodb_database     | Specify the database to check.
-mongodb_alldatabases | Check all databases (action database_size).
-mongodb_ssl          | Connect using SSL.
-mongodb_replicaset   | Connect to replicaset.
-mongodb_replcheck    | If set to true, will enable the mongodb_replicaset value needed for "replica_primary" check.
-mongodb_querytype    | The query type to check [query\|insert\|update\|delete\|getmore\|command] from queries_per_second.
-mongodb_collection   | Specify the collection to check.
-mongodb_sampletime   | Time used to sample number of pages faults.
-
-## elasticsearch <a id="elasticsearch"></a>
-
-The [check_elasticsearch](https://github.com/anchor/nagios-plugin-elasticsearch) plugin
-uses the HTTP API to monitor an [Elasticsearch](https://www.elastic.co/products/elasticsearch) node.
-
-Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
-
-Name                         | Description
------------------------------|------------
-elasticsearch_host           | Hostname or network address to probe. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
-elasticsearch_failuredomain  | A comma-separated list of ElasticSearch attributes that make up your cluster's failure domain.
-elasticsearch_masternodes    | Issue a warning if the number of master-eligible nodes in the cluster drops below this number. By default, do not monitor the number of nodes in the cluster.
-elasticsearch_port           | TCP port to probe.  The ElasticSearch API should be listening here. Defaults to 9200.
-elasticsearch_prefix         | Optional prefix (e.g. 'es') for the ElasticSearch API. Defaults to ''.
-elasticsearch_yellowcritical | Instead of issuing a 'warning' for a yellow cluster state, issue a 'critical' alert. Defaults to false.
 
 ## redis <a id="redis"></a>
 

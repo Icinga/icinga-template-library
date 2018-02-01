@@ -3,6 +3,44 @@
 This category contains plugins which receive details about your operating system
 or the guest system.
 
+## iostat <a id="iostat"></a>
+
+The [check_iostat](https://github.com/dnsmichi/icinga-plugins/blob/master/scripts/check_iostat) plugin
+uses the `iostat` binary to monitor disk I/O on a Linux host. The default thresholds are rather high
+so you can use a grapher for baselining before setting your own.
+
+Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
+
+Name          | Description
+--------------|------------
+iostat_disk   | **Required.** The device to monitor without path. e.g. sda or vda. (default: sda).
+iostat_wtps   | **Required.** Warning threshold for tps (default: 100).
+iostat_wread  | **Required.** Warning threshold for KB/s reads (default: 100).
+iostat_wwrite | **Required.** Warning threshold for KB/s writes (default: 100).
+iostat_ctps   | **Required.** Critical threshold for tps (default: 200).
+iostat_cread  | **Required.** Critical threshold for KB/s reads (default: 200).
+iostat_cwrite | **Required.** Critical threshold for KB/s writes (default: 200).
+
+## iostats <a id="iostats"></a>
+
+The [check_iostats](https://github.com/dnsmichi/icinga-plugins/blob/master/scripts/check_iostats) plugin
+uses the `iostat` binary to monitor I/O on a Linux host. The default thresholds are rather high
+so you can use a grapher for baselining before setting your own.
+
+Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
+
+Name                   | Description
+-----------------------|------------
+iostats_disk           | **Required.** The device to monitor without path. e.g. sda or vda. (default: sda).
+iostats_warning_tps    | **Required.** Warning threshold for tps (default: 3000).
+iostats_warning_read   | **Required.** Warning threshold for KB/s reads (default: 50000).
+iostats_warning_write  | **Required.** Warning threshold for KB/s writes (default: 10000).
+iostats_warning_wait   | **Required.** Warning threshold for % iowait (default: 50).
+iostats_critical_tps   | **Required.** Critical threshold for tps (default: 5000).
+iostats_critical_read  | **Required.** Critical threshold for KB/s reads (default: 80000).
+iostats_critical_write | **Required.** Critical threshold for KB/s writes (default: 25000).
+iostats_critical_wait  | **Required.** Critical threshold for % iowait (default: 80).
+
 ## mem <a id="mem"></a>
 
 The [check_mem.pl](https://github.com/justintime/nagios-plugins) plugin checks the
@@ -29,44 +67,6 @@ Custom attributes:
 Name                    | Description
 ------------------------|------------
 running_kernel_use_sudo | Whether to run the plugin with `sudo`. Defaults to false except on Ubuntu where it defaults to true.
-
-## iostats <a id="iostats"></a>
-
-The [check_iostats](https://github.com/dnsmichi/icinga-plugins/blob/master/scripts/check_iostats) plugin
-uses the `iostat` binary to monitor I/O on a Linux host. The default thresholds are rather high
-so you can use a grapher for baselining before setting your own.
-
-Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
-
-Name                   | Description
------------------------|------------
-iostats_disk           | **Required.** The device to monitor without path. e.g. sda or vda. (default: sda).
-iostats_warning_tps    | **Required.** Warning threshold for tps (default: 3000).
-iostats_warning_read   | **Required.** Warning threshold for KB/s reads (default: 50000).
-iostats_warning_write  | **Required.** Warning threshold for KB/s writes (default: 10000).
-iostats_warning_wait   | **Required.** Warning threshold for % iowait (default: 50).
-iostats_critical_tps   | **Required.** Critical threshold for tps (default: 5000).
-iostats_critical_read  | **Required.** Critical threshold for KB/s reads (default: 80000).
-iostats_critical_write | **Required.** Critical threshold for KB/s writes (default: 25000).
-iostats_critical_wait  | **Required.** Critical threshold for % iowait (default: 80).
-
-## iostat <a id="iostat"></a>
-
-The [check_iostat](https://github.com/dnsmichi/icinga-plugins/blob/master/scripts/check_iostat) plugin
-uses the `iostat` binary to monitor disk I/O on a Linux host. The default thresholds are rather high
-so you can use a grapher for baselining before setting your own.
-
-Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
-
-Name          | Description
---------------|------------
-iostat_disk   | **Required.** The device to monitor without path. e.g. sda or vda. (default: sda).
-iostat_wtps   | **Required.** Warning threshold for tps (default: 100).
-iostat_wread  | **Required.** Warning threshold for KB/s reads (default: 100).
-iostat_wwrite | **Required.** Warning threshold for KB/s writes (default: 100).
-iostat_ctps   | **Required.** Critical threshold for tps (default: 200).
-iostat_cread  | **Required.** Critical threshold for KB/s reads (default: 200).
-iostat_cwrite | **Required.** Critical threshold for KB/s writes (default: 200).
 
 ## yum <a id="yum"></a>
 

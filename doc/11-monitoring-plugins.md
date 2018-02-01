@@ -699,27 +699,6 @@ nscp_crit     | The critical threshold.
 nscp_timeout  | The query timeout in seconds.
 nscp_showall  | Use with SERVICESTATE to see working services or PROCSTATE for running processes. Defaults to false.
 
-## ntp_time <a id="ntp-time"></a>
-
-The [check_ntp_time](https://www.monitoring-plugins.org/doc/man/check_ntp_time.html) plugin
-checks the clock offset between the local host and a remote NTP server.
-
-**Note**: If you want to monitor an NTP server, please use `ntp_peer`.
-
-Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
-
-Name           | Description
----------------|------------
-ntp_address    | The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
-ntp_port       | Port number (default: 123).
-ntp_quiet      | Returns UNKNOWN instead of CRITICAL if offset cannot be found.
-ntp_warning    | Offset to result in warning status (seconds).
-ntp_critical   | Offset to result in critical status (seconds).
-ntp_timeoffset | Expected offset of the ntp server relative to local server (seconds).
-ntp_timeout    | Seconds before connection times out (default: 10).
-ntp_ipv4       | Use IPv4 connection. Defaults to false.
-ntp_ipv6       | Use IPv6 connection. Defaults to false.
-
 ## ntp_peer <a id="ntp-peer"></a>
 
 The [check_ntp_peer](https://www.monitoring-plugins.org/doc/man/check_ntp_peer.html) plugin
@@ -745,6 +724,27 @@ ntp_csource  | Critical threshold for number of usable time sources.
 ntp_timeout  | Seconds before connection times out (default: 10).
 ntp_ipv4     | Use IPv4 connection. Defaults to false.
 ntp_ipv6     | Use IPv6 connection. Defaults to false.
+
+## ntp_time <a id="ntp-time"></a>
+
+The [check_ntp_time](https://www.monitoring-plugins.org/doc/man/check_ntp_time.html) plugin
+checks the clock offset between the local host and a remote NTP server.
+
+**Note**: If you want to monitor an NTP server, please use `ntp_peer`.
+
+Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
+
+Name           | Description
+---------------|------------
+ntp_address    | The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+ntp_port       | Port number (default: 123).
+ntp_quiet      | Returns UNKNOWN instead of CRITICAL if offset cannot be found.
+ntp_warning    | Offset to result in warning status (seconds).
+ntp_critical   | Offset to result in critical status (seconds).
+ntp_timeoffset | Expected offset of the ntp server relative to local server (seconds).
+ntp_timeout    | Seconds before connection times out (default: 10).
+ntp_ipv4       | Use IPv4 connection. Defaults to false.
+ntp_ipv6       | Use IPv6 connection. Defaults to false.
 
 ## passive <a id="passive"></a>
 
@@ -1047,6 +1047,19 @@ snmp_offset           | Add/subtract the specified OFFSET to numeric sensor data
 snmp_output_delimiter | Separates output on multiple OID requests.
 snmp_perf_oids        | Label performance data with OIDs instead of --label's.
 
+## snmp-uptime <a id="snmp-uptime"></a>
+
+Check command object for the [check_snmp](https://www.monitoring-plugins.org/doc/man/check_snmp.html)
+plugin, using the uptime OID by default.
+
+Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
+
+Name           | Description
+---------------|------------
+snmp_address   | The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+snmp_oid       | The SNMP OID. Defaults to "1.3.6.1.2.1.1.3.0".
+snmp_community | The SNMP community. Defaults to "public".
+
 ## snmpv3 <a id="snmpv3"></a>
 
 Check command object for the [check_snmp](https://www.monitoring-plugins.org/doc/man/check_snmp.html)
@@ -1076,19 +1089,6 @@ snmpv3_units           | Units label(s) for output value (e.g., 'sec.').
 snmpv3_rate_multiplier | Converts rate per second. For example, set to 60 to convert to per minute.
 snmpv3_rate            | Boolean. Enable rate calculation.
 snmpv3_timeout         | The command timeout in seconds. Defaults to 10 seconds.
-
-## snmp-uptime <a id="snmp-uptime"></a>
-
-Check command object for the [check_snmp](https://www.monitoring-plugins.org/doc/man/check_snmp.html)
-plugin, using the uptime OID by default.
-
-Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
-
-Name           | Description
----------------|------------
-snmp_address   | The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
-snmp_oid       | The SNMP OID. Defaults to "1.3.6.1.2.1.1.3.0".
-snmp_community | The SNMP community. Defaults to "public".
 
 ## spop <a id="spop"></a>
 

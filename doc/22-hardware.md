@@ -2,6 +2,18 @@
 
 This category includes all plugin check commands for various hardware checks.
 
+## adaptec-raid <a id="adaptec-raid"></a>
+
+The [check_adaptec_raid](https://github.com/thomas-krenn/check_adaptec_raid) plugin
+uses the `arcconf` binary to monitor Adaptec RAID controllers.
+
+Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
+
+Name                      | Description
+--------------------------|------------
+adaptec_controller_number | **Required.** Controller number to monitor.
+arcconf_path              | **Required.** Path to the `arcconf` binary, e.g. "/sbin/arcconf".
+
 ## hpasm <a id="hpasm"></a>
 
 The [check_hpasm](https://labs.consol.de/de/nagios/check_hpasm/index.html) plugin
@@ -43,6 +55,18 @@ hpasm_servertype            | The type of the server: proliant (default) or blad
 hpasm_eval-nics             | Check network interfaces (and groups). Try it and report me whyt you think about it. I need to build up some know how on this subject. If you get an error and think, it is not justified for your configuration, please tell me about it. (always send the output of "snmpwalk -On .... 1.3.6.1.4.1.232" and a description how you setup your nics and why it is correct opposed to the plugins error message.
 hpasm_remote                | Run remote SNMP checks if enabled. Otherwise checks are executed locally using the `hpasmcli` binary. Defaults to `true`.
 
+## lsi-raid <a id="lsi-raid"></a>
+
+The [check_lsi_raid](https://github.com/thomas-krenn/check_lsi_raid) plugin
+uses the `storcli` binary to monitor MegaRAID RAID controllers.
+
+Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
+
+Name                  | Description
+----------------------|------------
+lsi_controller_number | **Required.** Controller number to monitor.
+storcli_path          | **Required.** Path to the `storcli` binary, e.g. "/usr/sbin/storcli".
+
 ## openmanage <a id="openmanage"></a>
 
 The [check_openmanage](http://folk.uio.no/trondham/software/check_openmanage.html) plugin
@@ -83,30 +107,6 @@ openmanage_tcp             | Use TCP instead of UDP [default=no]
 openmanage_timeout         | Plugin timeout in seconds [default=30]
 openmanage_vdisk_critical  | Make any alerts on virtual disks critical
 openmanage_warning         | Custom temperature warning limits
-
-## adaptec-raid <a id="adaptec-raid"></a>
-
-The [check_adaptec_raid](https://github.com/thomas-krenn/check_adaptec_raid) plugin
-uses the `arcconf` binary to monitor Adaptec RAID controllers.
-
-Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
-
-Name                      | Description
---------------------------|------------
-adaptec_controller_number | **Required.** Controller number to monitor.
-arcconf_path              | **Required.** Path to the `arcconf` binary, e.g. "/sbin/arcconf".
-
-## lsi-raid <a id="lsi-raid"></a>
-
-The [check_lsi_raid](https://github.com/thomas-krenn/check_lsi_raid) plugin
-uses the `storcli` binary to monitor MegaRAID RAID controllers.
-
-Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
-
-Name                  | Description
-----------------------|------------
-lsi_controller_number | **Required.** Controller number to monitor.
-storcli_path          | **Required.** Path to the `storcli` binary, e.g. "/usr/sbin/storcli".
 
 ## smart-attributes <a id="smart-attributes"></a>
 

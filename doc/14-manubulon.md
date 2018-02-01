@@ -68,6 +68,47 @@ snmp_env_celsius         | Maximum temp in degrees celsius (only needed for 'iro
 snmp_perf                | Enable perfdata values. Defaults to true.
 snmp_timeout             | The command timeout in seconds. Defaults to 5 seconds.
 
+## snmp-interface <a id="snmp-interface"></a>
+
+Check command object for the [check_snmp_int.pl](http://nagios.manubulon.com/snmp_int.html) plugin.
+
+Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
+
+Name                            | Description
+--------------------------------|------------
+snmp_address                    | The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+snmp_nocrypt                    | Define SNMP encryption. If set to `false`, `snmp_v3` needs to be enabled. Defaults to `true` (no encryption).
+snmp_community                  | The SNMP community. Defaults to "public".
+snmp_port                       | The SNMP port connection.
+snmp_v2                         | SNMP version to 2c. Defaults to false.
+snmp_v3                         | SNMP version to 3. Defaults to false.
+snmp_login                      | SNMP version 3 username. Defaults to "snmpuser".
+snmp_password                   | **Required.** SNMP version 3 password. No value defined as default.
+snmp_v3_use_privpass            | Define to use SNMP version 3 priv password. Defaults to false.
+snmp_v3_use_authprotocol        | Define to use SNMP version 3 authentication protocol. Defaults to false.
+snmp_authprotocol               | SNMP version 3 authentication protocol. Defaults to "md5,des".
+snmp_privpass                   | **Required.** SNMP version 3 priv password. No value defined as default.
+snmp_warn                       | The warning threshold.
+snmp_crit                       | The critical threshold.
+snmp_interface                  | Network interface name. Default to regex "eth0".
+snmp_interface_inverse          | Inverse Interface check, down is ok. Defaults to false as it is missing.
+snmp_interface_perf             | Check the input/output bandwidth of the interface. Defaults to true.
+snmp_interface_label            | Add label before speed in output: in=, out=, errors-out=, etc.
+snmp_interface_bits_bytes       | Output performance data in bits/s or Bytes/s. **Depends** on snmp_interface_kbits set to true. Defaults to true.
+snmp_interface_percent          | Output performance data in % of max speed. Defaults to false.
+snmp_interface_kbits            | Make the warning and critical levels in KBits/s. Defaults to true.
+snmp_interface_megabytes        | Make the warning and critical levels in Mbps or MBps. **Depends** on snmp_interface_kbits set to true. Defaults to true.
+snmp_interface_64bit            | Use 64 bits counters instead of the standard counters when checking bandwidth & performance data for interface >= 1Gbps. Defaults to false.
+snmp_interface_errors           | Add error & discard to Perfparse output. Defaults to true.
+snmp_interface_noregexp         | Do not use regexp to match interface name in description OID. Defaults to false.
+snmp_interface_delta            | Delta time of perfcheck. Defaults to "300" (5 min).
+snmp_interface_warncrit_percent | Make the warning and critical levels in % of reported interface speed. If set, **snmp_interface_megabytes** needs to be set to false. Defaults to false.
+snmp_interface_ifname           | Switch from IF-MIB::ifDescr to IF-MIB::ifName when looking up the interface's name.
+snmp_interface_ifalias          | Switch from IF-MIB::ifDescr to IF-MIB::ifAlias when looking up the interface's name.
+snmp_interface_weathermap       | Output data for ["weathermap" lines](http://docs.nagvis.org/1.9/en_US/lines_weathermap_style.html) in NagVis. **Depends** on `snmp_interface_perf` set to true. Defaults to `false`. **Note**: Available in `check_snmp_int.pl v2.1.0`.
+snmp_perf                       | Enable perfdata values. Defaults to true.
+snmp_timeout                    | The command timeout in seconds. Defaults to 5 seconds.
+
 ## snmp-load <a id="snmp-load"></a>
 
 Check command object for the [check_snmp_load.pl](http://nagios.manubulon.com/snmp_load.html) plugin.
@@ -122,74 +163,6 @@ snmp_perf                | Enable perfdata values. Defaults to true.
 snmp_memcached           | Include cached memory in used memory, Defaults to false.
 snmp_membuffer           | Exclude buffered memory in used memory, Defaults to false.
 snmp_timeout             | The command timeout in seconds. Defaults to 5 seconds.
-
-## snmp-storage <a id="snmp-storage"></a>
-
-Check command object for the [check_snmp_storage.pl](http://nagios.manubulon.com/snmp_storage.html) plugin.
-
-Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
-
-Name                     | Description
--------------------------|------------
-snmp_address             | The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
-snmp_nocrypt             | Define SNMP encryption. If set to `false`, `snmp_v3` needs to be enabled. Defaults to `true` (no encryption).
-snmp_community           | The SNMP community. Defaults to "public".
-snmp_port                | The SNMP port connection.
-snmp_v2                  | SNMP version to 2c. Defaults to false.
-snmp_v3                  | SNMP version to 3. Defaults to false.
-snmp_login               | SNMP version 3 username. Defaults to "snmpuser".
-snmp_password            | **Required.** SNMP version 3 password. No value defined as default.
-snmp_v3_use_privpass     | Define to use SNMP version 3 priv password. Defaults to false.
-snmp_v3_use_authprotocol | Define to use SNMP version 3 authentication protocol. Defaults to false.
-snmp_authprotocol        | SNMP version 3 authentication protocol. Defaults to "md5,des".
-snmp_privpass            | **Required.** SNMP version 3 priv password. No value defined as default.
-snmp_warn                | The warning threshold.
-snmp_crit                | The critical threshold.
-snmp_storage_name        | Storage name. Default to regex "^/$$". More options available in the [snmp storage](http://nagios.manubulon.com/snmp_storage.html) documentation.
-snmp_perf                | Enable perfdata values. Defaults to true.
-snmp_timeout             | The command timeout in seconds. Defaults to 5 seconds.
-snmp_storage_olength     | Max-size of the SNMP message, usefull in case of Too Long responses.
-
-## snmp-interface <a id="snmp-interface"></a>
-
-Check command object for the [check_snmp_int.pl](http://nagios.manubulon.com/snmp_int.html) plugin.
-
-Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
-
-Name                            | Description
---------------------------------|------------
-snmp_address                    | The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
-snmp_nocrypt                    | Define SNMP encryption. If set to `false`, `snmp_v3` needs to be enabled. Defaults to `true` (no encryption).
-snmp_community                  | The SNMP community. Defaults to "public".
-snmp_port                       | The SNMP port connection.
-snmp_v2                         | SNMP version to 2c. Defaults to false.
-snmp_v3                         | SNMP version to 3. Defaults to false.
-snmp_login                      | SNMP version 3 username. Defaults to "snmpuser".
-snmp_password                   | **Required.** SNMP version 3 password. No value defined as default.
-snmp_v3_use_privpass            | Define to use SNMP version 3 priv password. Defaults to false.
-snmp_v3_use_authprotocol        | Define to use SNMP version 3 authentication protocol. Defaults to false.
-snmp_authprotocol               | SNMP version 3 authentication protocol. Defaults to "md5,des".
-snmp_privpass                   | **Required.** SNMP version 3 priv password. No value defined as default.
-snmp_warn                       | The warning threshold.
-snmp_crit                       | The critical threshold.
-snmp_interface                  | Network interface name. Default to regex "eth0".
-snmp_interface_inverse          | Inverse Interface check, down is ok. Defaults to false as it is missing.
-snmp_interface_perf             | Check the input/output bandwidth of the interface. Defaults to true.
-snmp_interface_label            | Add label before speed in output: in=, out=, errors-out=, etc.
-snmp_interface_bits_bytes       | Output performance data in bits/s or Bytes/s. **Depends** on snmp_interface_kbits set to true. Defaults to true.
-snmp_interface_percent          | Output performance data in % of max speed. Defaults to false.
-snmp_interface_kbits            | Make the warning and critical levels in KBits/s. Defaults to true.
-snmp_interface_megabytes        | Make the warning and critical levels in Mbps or MBps. **Depends** on snmp_interface_kbits set to true. Defaults to true.
-snmp_interface_64bit            | Use 64 bits counters instead of the standard counters when checking bandwidth & performance data for interface >= 1Gbps. Defaults to false.
-snmp_interface_errors           | Add error & discard to Perfparse output. Defaults to true.
-snmp_interface_noregexp         | Do not use regexp to match interface name in description OID. Defaults to false.
-snmp_interface_delta            | Delta time of perfcheck. Defaults to "300" (5 min).
-snmp_interface_warncrit_percent | Make the warning and critical levels in % of reported interface speed. If set, **snmp_interface_megabytes** needs to be set to false. Defaults to false.
-snmp_interface_ifname           | Switch from IF-MIB::ifDescr to IF-MIB::ifName when looking up the interface's name.
-snmp_interface_ifalias          | Switch from IF-MIB::ifDescr to IF-MIB::ifAlias when looking up the interface's name.
-snmp_interface_weathermap       | Output data for ["weathermap" lines](http://docs.nagvis.org/1.9/en_US/lines_weathermap_style.html) in NagVis. **Depends** on `snmp_interface_perf` set to true. Defaults to `false`. **Note**: Available in `check_snmp_int.pl v2.1.0`.
-snmp_perf                       | Enable perfdata values. Defaults to true.
-snmp_timeout                    | The command timeout in seconds. Defaults to 5 seconds.
 
 ## snmp-process <a id="snmp-process"></a>
 
@@ -247,3 +220,30 @@ snmp_service_name        | Comma separated names of services (perl regular expre
 snmp_service_count       | Compare matching services with a specified number instead of the number of names provided.
 snmp_service_showall     | Show all services in the output, instead of only the non-active ones. Defaults to false.
 snmp_service_noregexp    | Do not use regexp to match NAME in service description. Defaults to false.
+
+## snmp-storage <a id="snmp-storage"></a>
+
+Check command object for the [check_snmp_storage.pl](http://nagios.manubulon.com/snmp_storage.html) plugin.
+
+Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
+
+Name                     | Description
+-------------------------|------------
+snmp_address             | The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+snmp_nocrypt             | Define SNMP encryption. If set to `false`, `snmp_v3` needs to be enabled. Defaults to `true` (no encryption).
+snmp_community           | The SNMP community. Defaults to "public".
+snmp_port                | The SNMP port connection.
+snmp_v2                  | SNMP version to 2c. Defaults to false.
+snmp_v3                  | SNMP version to 3. Defaults to false.
+snmp_login               | SNMP version 3 username. Defaults to "snmpuser".
+snmp_password            | **Required.** SNMP version 3 password. No value defined as default.
+snmp_v3_use_privpass     | Define to use SNMP version 3 priv password. Defaults to false.
+snmp_v3_use_authprotocol | Define to use SNMP version 3 authentication protocol. Defaults to false.
+snmp_authprotocol        | SNMP version 3 authentication protocol. Defaults to "md5,des".
+snmp_privpass            | **Required.** SNMP version 3 priv password. No value defined as default.
+snmp_warn                | The warning threshold.
+snmp_crit                | The critical threshold.
+snmp_storage_name        | Storage name. Default to regex "^/$$". More options available in the [snmp storage](http://nagios.manubulon.com/snmp_storage.html) documentation.
+snmp_perf                | Enable perfdata values. Defaults to true.
+snmp_timeout             | The command timeout in seconds. Defaults to 5 seconds.
+snmp_storage_olength     | Max-size of the SNMP message, usefull in case of Too Long responses.

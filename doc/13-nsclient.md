@@ -9,52 +9,6 @@ Both methods have their advantages and disadvantages. One thing to
 note: If you rely on performance counter delta calculations such as
 CPU utilization, please use the HTTP API instead of the CLI sample call.
 
-## nscp_api <a id="nscp-check-api"></a>
-
-`check_nscp_api` is part of the Icinga 2 plugins. This plugin is available for
-both, Windows and Linux/Unix.
-
-Verify that the ITL CheckCommand is included in the [icinga2.conf](04-configuring-icinga-2.md#icinga2-conf) configuration file:
-
-```
-vim /etc/icinga2/icinga2.conf
-
-include <plugins>
-```
-
-`check_nscp_api` runs queries against the NSClient++ API. Therefore NSClient++ needs to have
-the `webserver` module enabled, configured and loaded.
-
-You can install the webserver using the following CLI commands:
-
-```
-./nscp.exe web install
-./nscp.exe web password — –set icinga
-```
-
-Now you can define specific [queries](https://docs.nsclient.org/reference/check/CheckHelpers.html#queries)
-and integrate them into Icinga 2.
-
-The check plugin `check_nscp_api` can be integrated with the `nscp_api` CheckCommand object:
-
-Custom attributes:
-
-Name               | Description
--------------------|------------
-nscp_api_host      | **Required**. NSCP API host address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
-nscp_api_port      | NSCP API port. Defaults to `8443`.
-nscp_api_password  | **Required**. NSCP API password. Please check the NSCP documentation for setup details.
-nscp_api_query     | **Required**. NSCP API query endpoint. Refer to the NSCP documentation for possible values.
-nscp_api_arguments | NSCP API arguments dictionary either as single strings or key-value pairs using `=`. Refer to the NSCP documentation.
-
-`nscp_api_arguments` can be used to pass required thresholds to the executed check. The example below
-checks the CPU utilization and specifies warning and critical thresholds.
-
-```
-check_nscp_api --host 10.0.10.148 --password icinga --query check_cpu --arguments show-all warning='load>40' critical='load>30'
-check_cpu CRITICAL: critical(5m: 48%, 1m: 36%), 5s: 0% | 'total 5m'=48%;40;30 'total 1m'=36%;40;30 'total 5s'=0%;40;30
-```
-
 ## nscp-local <a id="nscp-check-local"></a>
 
 Icinga 2 can use the `nscp client` command to run arbitrary NSClient++ checks locally on the client.
@@ -93,6 +47,19 @@ nscp_query     | **Required.** The NSClient++ query. Try `nscp client -q x` for 
 nscp_arguments | An array of query arguments.
 nscp_showall   | Shows more details in plugin output, default to false.
 
+## nscp-local-counter <a id="nscp-check-local-counter"></a>
+
+Check command object for the `check_pdh` NSClient++ plugin.
+
+Name                    | Description
+------------------------|------------
+nscp_counter_name       | **Required.** Performance counter name.
+nscp_counter_warning    | WARNING Threshold.
+nscp_counter_critical   | CRITICAL Threshold.
+nscp_counter_arguments  | Additional arguments.
+nscp_counter_showall    | Shows more details in plugin output, default to false.
+nscp_counter_perfsyntax | Apply performance data label, e.g. `Total Processor Time` to avoid special character problems. Defaults to `nscp_counter_name`.
+
 ## nscp-local-cpu <a id="nscp-check-local-cpu"></a>
 
 Check command object for the `check_cpu` NSClient++ plugin.
@@ -104,6 +71,20 @@ nscp_cpu_warning   | Threshold for WARNING state in percent, default to 80.
 nscp_cpu_critical  | Threshold for CRITICAL state in percent, default to 90.
 nscp_cpu_arguments | Additional arguments.
 nscp_cpu_showall   | Shows more details in plugin output, default to false.
+
+## nscp-local-disk <a id="nscp-check-local-disk"></a>
+
+Check command object for the `check_drivesize` NSClient++ plugin.
+
+Name                | Description
+--------------------|------------
+nscp_disk_drive     | Drive character, default to all drives.
+nscp_disk_free      | Switch between checking free space (free=true) or used space (free=false), default to false.
+nscp_disk_warning   | Threshold for WARNING in percent or absolute (use MB, GB, ...), default to 80 (used) or 20 percent (free).
+nscp_disk_critical  | Threshold for CRITICAL in percent or absolute (use MB, GB, ...), default to 90 (used) or 10 percent (free).
+nscp_disk_arguments | Additional arguments.
+nscp_disk_showall   | Shows more details in plugin output, default to true.
+nscp_modules        | An array of NSClient++ modules to load. Defaults to `[ "CheckDisk" ]`.
 
 ## nscp-local-memory <a id="nscp-check-local-memory"></a>
 
@@ -167,29 +148,48 @@ Check command object for the `check_version` NSClient++ plugin.
 This command has the same custom attributes like the `nscp-local` check command.
 In addition to that the default value for `nscp_modules` is set to `[ "CheckHelpers" ]`.
 
-## nscp-local-disk <a id="nscp-check-local-disk"></a>
+## nscp_api <a id="nscp-check-api"></a>
 
-Check command object for the `check_drivesize` NSClient++ plugin.
+`check_nscp_api` is part of the Icinga 2 plugins. This plugin is available for
+both, Windows and Linux/Unix.
 
-Name                | Description
---------------------|------------
-nscp_disk_drive     | Drive character, default to all drives.
-nscp_disk_free      | Switch between checking free space (free=true) or used space (free=false), default to false.
-nscp_disk_warning   | Threshold for WARNING in percent or absolute (use MB, GB, ...), default to 80 (used) or 20 percent (free).
-nscp_disk_critical  | Threshold for CRITICAL in percent or absolute (use MB, GB, ...), default to 90 (used) or 10 percent (free).
-nscp_disk_arguments | Additional arguments.
-nscp_disk_showall   | Shows more details in plugin output, default to true.
-nscp_modules        | An array of NSClient++ modules to load. Defaults to `[ "CheckDisk" ]`.
+Verify that the ITL CheckCommand is included in the [icinga2.conf](04-configuring-icinga-2.md#icinga2-conf) configuration file:
 
-## nscp-local-counter <a id="nscp-check-local-counter"></a>
+```
+vim /etc/icinga2/icinga2.conf
 
-Check command object for the `check_pdh` NSClient++ plugin.
+include <plugins>
+```
 
-Name                    | Description
-------------------------|------------
-nscp_counter_name       | **Required.** Performance counter name.
-nscp_counter_warning    | WARNING Threshold.
-nscp_counter_critical   | CRITICAL Threshold.
-nscp_counter_arguments  | Additional arguments.
-nscp_counter_showall    | Shows more details in plugin output, default to false.
-nscp_counter_perfsyntax | Apply performance data label, e.g. `Total Processor Time` to avoid special character problems. Defaults to `nscp_counter_name`.
+`check_nscp_api` runs queries against the NSClient++ API. Therefore NSClient++ needs to have
+the `webserver` module enabled, configured and loaded.
+
+You can install the webserver using the following CLI commands:
+
+```
+./nscp.exe web install
+./nscp.exe web password — –set icinga
+```
+
+Now you can define specific [queries](https://docs.nsclient.org/reference/check/CheckHelpers.html#queries)
+and integrate them into Icinga 2.
+
+The check plugin `check_nscp_api` can be integrated with the `nscp_api` CheckCommand object:
+
+Custom attributes:
+
+Name               | Description
+-------------------|------------
+nscp_api_host      | **Required**. NSCP API host address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+nscp_api_port      | NSCP API port. Defaults to `8443`.
+nscp_api_password  | **Required**. NSCP API password. Please check the NSCP documentation for setup details.
+nscp_api_query     | **Required**. NSCP API query endpoint. Refer to the NSCP documentation for possible values.
+nscp_api_arguments | NSCP API arguments dictionary either as single strings or key-value pairs using `=`. Refer to the NSCP documentation.
+
+`nscp_api_arguments` can be used to pass required thresholds to the executed check. The example below
+checks the CPU utilization and specifies warning and critical thresholds.
+
+```
+check_nscp_api --host 10.0.10.148 --password icinga --query check_cpu --arguments show-all warning='load>40' critical='load>30'
+check_cpu CRITICAL: critical(5m: 48%, 1m: 36%), 5s: 0% | 'total 5m'=48%;40;30 'total 1m'=36%;40;30 'total 5s'=0%;40;30
+```

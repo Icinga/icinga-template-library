@@ -2,31 +2,6 @@
 
 This category includes all plugins for various virtualization technologies.
 
-## esxi_hardware <a id="esxi-hardware"></a>
-
-The [check_esxi_hardware.py](https://www.claudiokuenzler.com/nagios-plugins/check_esxi_hardware.php) plugin
-uses the [pywbem](https://pywbem.github.io/pywbem/) Python library to monitor the hardware of ESXi servers
-through the [VMWare API](https://www.vmware.com/support/pubs/sdk_pubs.html) and CIM service.
-
-Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
-
-Name                    | Description
-------------------------|------------
-esxi_hardware_host      | **Required.** Specifies the host to monitor. Defaults to "$address$".
-esxi_hardware_user      | **Required.** Specifies the user for polling. Must be a local user of the root group on the system. Can also be provided as a file path file:/path/to/.passwdfile, then first string of file is used.
-esxi_hardware_pass      | **Required.** Password of the user. Can also be provided as a file path file:/path/to/.passwdfile, then second string of file is used.
-esxi_hardware_port      | Specifies the CIM port to connect to. Defaults to 5989.
-esxi_hardware_vendor    | Defines the vendor of the server: "auto", "dell", "hp", "ibm", "intel", "unknown" (default).
-esxi_hardware_html      | Add web-links to hardware manuals for Dell servers (use your country extension). Only useful with **esxi_hardware_vendor** = dell.
-esxi_hardware_ignore    | Comma separated list of elements to ignore.
-esxi_hardware_perfdata  | Add performcedata for graphers like PNP4Nagios to the output. Defaults to false.
-esxi_hardware_nopower   | Do not collect power performance data, when **esxi_hardware_perfdata** is set to true. Defaults to false.
-esxi_hardware_novolts   | Do not collect voltage performance data, when **esxi_hardware_perfdata** is set to true. Defaults to false.
-esxi_hardware_nocurrent | Do not collect current performance data, when **esxi_hardware_perfdata** is set to true. Defaults to false.
-esxi_hardware_notemp    | Do not collect temperature performance data, when **esxi_hardware_perfdata** is set to true. Defaults to false.
-esxi_hardware_nofan     | Do not collect fan performance data, when **esxi_hardware_perfdata** is set to true. Defaults to false.
-esxi_hardware_nolcd     | Do not collect lcd/display status data. Defaults to false.
-
 ## VMware <a id="vmware"></a>
 
 Check commands for the [check_vmware_esx](https://github.com/BaldMansMojo/check_vmware_esx) plugin.
@@ -1943,3 +1918,28 @@ vmware_username       | The username to connect to Host or vCenter server. No va
 vmware_password       | The username's password. No value defined as default.
 vmware_authfile       | Use auth file instead username/password to session connect. No effect if **vmware_username** and **vmware_password** are defined <br> **Authentication file content:** <br>  username=vmuser <br> password=p@ssw0rd
 vmware_multiline      | Multiline output in overview. This mean technically that a multiline output uses a HTML **\<br\>** for the GUI. No value defined as default.
+
+## esxi_hardware <a id="esxi-hardware"></a>
+
+The [check_esxi_hardware.py](https://www.claudiokuenzler.com/nagios-plugins/check_esxi_hardware.php) plugin
+uses the [pywbem](https://pywbem.github.io/pywbem/) Python library to monitor the hardware of ESXi servers
+through the [VMWare API](https://www.vmware.com/support/pubs/sdk_pubs.html) and CIM service.
+
+Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
+
+Name                    | Description
+------------------------|------------
+esxi_hardware_host      | **Required.** Specifies the host to monitor. Defaults to "$address$".
+esxi_hardware_user      | **Required.** Specifies the user for polling. Must be a local user of the root group on the system. Can also be provided as a file path file:/path/to/.passwdfile, then first string of file is used.
+esxi_hardware_pass      | **Required.** Password of the user. Can also be provided as a file path file:/path/to/.passwdfile, then second string of file is used.
+esxi_hardware_port      | Specifies the CIM port to connect to. Defaults to 5989.
+esxi_hardware_vendor    | Defines the vendor of the server: "auto", "dell", "hp", "ibm", "intel", "unknown" (default).
+esxi_hardware_html      | Add web-links to hardware manuals for Dell servers (use your country extension). Only useful with **esxi_hardware_vendor** = dell.
+esxi_hardware_ignore    | Comma separated list of elements to ignore.
+esxi_hardware_perfdata  | Add performcedata for graphers like PNP4Nagios to the output. Defaults to false.
+esxi_hardware_nopower   | Do not collect power performance data, when **esxi_hardware_perfdata** is set to true. Defaults to false.
+esxi_hardware_novolts   | Do not collect voltage performance data, when **esxi_hardware_perfdata** is set to true. Defaults to false.
+esxi_hardware_nocurrent | Do not collect current performance data, when **esxi_hardware_perfdata** is set to true. Defaults to false.
+esxi_hardware_notemp    | Do not collect temperature performance data, when **esxi_hardware_perfdata** is set to true. Defaults to false.
+esxi_hardware_nofan     | Do not collect fan performance data, when **esxi_hardware_perfdata** is set to true. Defaults to false.
+esxi_hardware_nolcd     | Do not collect lcd/display status data. Defaults to false.

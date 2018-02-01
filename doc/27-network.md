@@ -2,6 +2,75 @@
 
 This category includes all plugins for various network components like routers, switches and firewalls.
 
+## iftraffic <a id="iftraffic"></a>
+
+The [check_iftraffic](https://exchange.icinga.com/exchange/iftraffic) plugin
+checks the utilization of a given interface name using the SNMP protocol.
+
+Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
+
+Name                  | Description
+----------------------|------------
+iftraffic_address     | **Required.** Specifies the remote host. Defaults to "$address$".
+iftraffic_community   | SNMP community. Defaults to "public'" if omitted.
+iftraffic_interface   | **Required.** Queried interface name.
+iftraffic_bandwidth   | **Required.** Interface maximum speed in kilo/mega/giga/bits per second.
+iftraffic_units       | Interface units can be one of these values: `g` (gigabits/s),`m` (megabits/s), `k` (kilobits/s),`b` (bits/s)
+iftraffic_warn        | Percent of bandwidth usage necessary to result in warning status (defaults to `85`).
+iftraffic_crit        | Percent of bandwidth usage necessary to result in critical status (defaults to `98`).
+iftraffic_max_counter | Maximum counter value of net devices in kilo/mega/giga/bytes.
+
+## iftraffic64 <a id="iftraffic64"></a>
+
+The [check_iftraffic64](https://exchange.icinga.com/exchange/iftraffic64) plugin
+checks the utilization of a given interface name using the SNMP protocol.
+
+Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
+
+Name                    | Description
+------------------------|------------
+iftraffic64_address     | **Required.** Specifies the remote host. Defaults to "$address$".
+iftraffic64_community   | SNMP community. Defaults to "public'" if omitted.
+iftraffic64_interface   | **Required.** Queried interface name.
+iftraffic64_bandwidth   | **Required.** Interface maximum speed in kilo/mega/giga/bits per second.
+iftraffic64_units       | Interface units can be one of these values: `g` (gigabits/s),`m` (megabits/s), `k` (kilobits/s),`b` (bits/s)
+iftraffic64_warn        | Percent of bandwidth usage necessary to result in warning status (defaults to `85`).
+iftraffic64_crit        | Percent of bandwidth usage necessary to result in critical status (defaults to `98`).
+iftraffic64_max_counter | Maximum counter value of net devices in kilo/mega/giga/bytes.
+
+## interfaces <a id="interfaces"></a>
+
+The [check_interfaces](https://git.netways.org/plugins/check_interfaces) plugin
+uses SNMP to monitor network interfaces and their utilization.
+
+Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
+
+Name                     | Description
+-------------------------|------------
+interfaces_address       | The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
+interfaces_regex         | Interface list regexp.
+interfaces_exclude_regex | Interface list negative regexp.
+interfaces_errors        | Number of in errors (CRC errors for cisco) to consider a warning (default 50).
+interface_out_errors     | Number of out errors (collisions for cisco) to consider a warning (default same as in errors).
+interfaces_perfdata      | perfdata from last check result.
+interfaces_prefix        | Prefix interface names with this label.
+interfaces_lastcheck     | Last checktime (unixtime).
+interfaces_bandwidth     | Bandwidth warn level in percent.
+interfaces_speed         | Override speed detection with this value (bits per sec).
+interfaces_trim          | Cut this number of characters from the start of interface descriptions.
+interfaces_mode          | Special operating mode (default,cisco,nonbulk,bintec).
+interfaces_auth_proto    | SNMPv3 Auth Protocol (SHA\|MD5)
+interfaces_auth_phrase   | SNMPv3 Auth Phrase
+interfaces_priv_proto    | SNMPv3 Privacy Protocol (AES\|DES)
+interfaces_priv_phrase   | SNMPv3 Privacy Phrase
+interfaces_user          | SNMPv3 User
+interfaces_down_is_ok    | Disables critical alerts for down interfaces.
+interfaces_aliases       | Retrieves the interface description.
+interfaces_match_aliases | Also match against aliases (Option --aliases automatically enabled).
+interfaces_timeout       | Sets the SNMP timeout (in ms).
+interfaces_sleep         | Sleep between every SNMP query (in ms).
+interfaces_names         | If set to true, use ifName instead of ifDescr.
+
 ## interfacetable <a id="interfacetable"></a>
 
 The [check_interfacetable_v3t](http://www.tontonitch.com/tiki/tiki-index.php?page=Nagios+plugins+-+interfacetable_v3t) plugin
@@ -74,75 +143,6 @@ interfacetable_notips              | Disable the tips in the generated html tabl
 interfacetable_defaulttablesorting | Default table sorting can be "index" (default) or "name".
 interfacetable_tablesplit          | Generate multiple interface tables, one per interface type. Defaults to false.
 interfacetable_notype              | Remove the interface type for each interface. Defaults to false.
-
-## iftraffic <a id="iftraffic"></a>
-
-The [check_iftraffic](https://exchange.icinga.com/exchange/iftraffic) plugin
-checks the utilization of a given interface name using the SNMP protocol.
-
-Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
-
-Name                  | Description
-----------------------|------------
-iftraffic_address     | **Required.** Specifies the remote host. Defaults to "$address$".
-iftraffic_community   | SNMP community. Defaults to "public'" if omitted.
-iftraffic_interface   | **Required.** Queried interface name.
-iftraffic_bandwidth   | **Required.** Interface maximum speed in kilo/mega/giga/bits per second.
-iftraffic_units       | Interface units can be one of these values: `g` (gigabits/s),`m` (megabits/s), `k` (kilobits/s),`b` (bits/s)
-iftraffic_warn        | Percent of bandwidth usage necessary to result in warning status (defaults to `85`).
-iftraffic_crit        | Percent of bandwidth usage necessary to result in critical status (defaults to `98`).
-iftraffic_max_counter | Maximum counter value of net devices in kilo/mega/giga/bytes.
-
-## iftraffic64 <a id="iftraffic64"></a>
-
-The [check_iftraffic64](https://exchange.icinga.com/exchange/iftraffic64) plugin
-checks the utilization of a given interface name using the SNMP protocol.
-
-Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
-
-Name                    | Description
-------------------------|------------
-iftraffic64_address     | **Required.** Specifies the remote host. Defaults to "$address$".
-iftraffic64_community   | SNMP community. Defaults to "public'" if omitted.
-iftraffic64_interface   | **Required.** Queried interface name.
-iftraffic64_bandwidth   | **Required.** Interface maximum speed in kilo/mega/giga/bits per second.
-iftraffic64_units       | Interface units can be one of these values: `g` (gigabits/s),`m` (megabits/s), `k` (kilobits/s),`b` (bits/s)
-iftraffic64_warn        | Percent of bandwidth usage necessary to result in warning status (defaults to `85`).
-iftraffic64_crit        | Percent of bandwidth usage necessary to result in critical status (defaults to `98`).
-iftraffic64_max_counter | Maximum counter value of net devices in kilo/mega/giga/bytes.
-
-## interfaces <a id="interfaces"></a>
-
-The [check_interfaces](https://git.netways.org/plugins/check_interfaces) plugin
-uses SNMP to monitor network interfaces and their utilization.
-
-Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
-
-Name                     | Description
--------------------------|------------
-interfaces_address       | The host's address. Defaults to "$address$" if the host's `address` attribute is set, "$address6$" otherwise.
-interfaces_regex         | Interface list regexp.
-interfaces_exclude_regex | Interface list negative regexp.
-interfaces_errors        | Number of in errors (CRC errors for cisco) to consider a warning (default 50).
-interface_out_errors     | Number of out errors (collisions for cisco) to consider a warning (default same as in errors).
-interfaces_perfdata      | perfdata from last check result.
-interfaces_prefix        | Prefix interface names with this label.
-interfaces_lastcheck     | Last checktime (unixtime).
-interfaces_bandwidth     | Bandwidth warn level in percent.
-interfaces_speed         | Override speed detection with this value (bits per sec).
-interfaces_trim          | Cut this number of characters from the start of interface descriptions.
-interfaces_mode          | Special operating mode (default,cisco,nonbulk,bintec).
-interfaces_auth_proto    | SNMPv3 Auth Protocol (SHA\|MD5)
-interfaces_auth_phrase   | SNMPv3 Auth Phrase
-interfaces_priv_proto    | SNMPv3 Privacy Protocol (AES\|DES)
-interfaces_priv_phrase   | SNMPv3 Privacy Phrase
-interfaces_user          | SNMPv3 User
-interfaces_down_is_ok    | Disables critical alerts for down interfaces.
-interfaces_aliases       | Retrieves the interface description.
-interfaces_match_aliases | Also match against aliases (Option --aliases automatically enabled).
-interfaces_timeout       | Sets the SNMP timeout (in ms).
-interfaces_sleep         | Sleep between every SNMP query (in ms).
-interfaces_names         | If set to true, use ifName instead of ifDescr.
 
 ## nwc_health <a id="nwc_health"></a>
 

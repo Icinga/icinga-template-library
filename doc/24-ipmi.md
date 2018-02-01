@@ -2,6 +2,22 @@
 
 This category includes all plugins for IPMI devices.
 
+## ipmi-alive <a id="ipmi-alive"></a>
+
+The `ipmi-alive` check commands allows you to create a ping check for the IPMI Interface.
+
+Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
+
+Name         | Description
+-------------|------------
+ping_address | The address of the IPMI interface. Defaults to "$address$" if the IPMI interface's `address` attribute is set, "$address6$" otherwise.
+ping_wrta    | The RTA warning threshold in milliseconds. Defaults to 5000.
+ping_wpl     | The packet loss warning threshold in %. Defaults to 100.
+ping_crta    | The RTA critical threshold in milliseconds. Defaults to 5000.
+ping_cpl     | The packet loss critical threshold in %. Defaults to 100.
+ping_packets | The number of packets to send. Defaults to 1.
+ping_timeout | The plugin timeout in seconds. Defaults to 0 (no timeout).
+
 ## ipmi-sensor <a id="ipmi-sensor"></a>
 
 The [check_ipmi_sensor](https://github.com/thomas-krenn/check_ipmi_sensor_v3) plugin
@@ -32,19 +48,3 @@ ipmi_no_sel_checking             | Turn off system event log checking via ipmi-s
 ipmi_no_thresholds               | Turn off performance data thresholds from output-sensor-thresholds.
 ipmi_verbose                     | Be Verbose multi line output, also with additional details for warnings.
 ipmi_debug                       | Be Verbose debugging output, followed by normal multi line output.
-
-## ipmi-alive <a id="ipmi-alive"></a>
-
-The `ipmi-alive` check commands allows you to create a ping check for the IPMI Interface.
-
-Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
-
-Name         | Description
--------------|------------
-ping_address | The address of the IPMI interface. Defaults to "$address$" if the IPMI interface's `address` attribute is set, "$address6$" otherwise.
-ping_wrta    | The RTA warning threshold in milliseconds. Defaults to 5000.
-ping_wpl     | The packet loss warning threshold in %. Defaults to 100.
-ping_crta    | The RTA critical threshold in milliseconds. Defaults to 5000.
-ping_cpl     | The packet loss critical threshold in %. Defaults to 100.
-ping_packets | The number of packets to send. Defaults to 1.
-ping_timeout | The plugin timeout in seconds. Defaults to 0 (no timeout).
