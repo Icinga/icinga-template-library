@@ -110,6 +110,17 @@ Name        | Description
 dummy_state | The state. Can be one of 0 (ok), 1 (warning), 2 (critical) and 3 (unknown). Defaults to 0.
 dummy_text  | Plugin output. Defaults to "Check was successful.".
 
+### passive <a id="itl-check-command-passive"></a>
+
+Specialised check command object for passive checks which uses the functionality of the "dummy" check command with appropriate default values.
+
+Custom attributes passed as [command parameters](03-monitoring-basics.md#command-passing-parameters):
+
+Name        | Description
+------------|--------------
+dummy_state | **Optional.** The state. Can be one of 0 (ok), 1 (warning), 2 (critical) and 3 (unknown). Defaults to 3.
+dummy_text  | **Optional.** Plugin output. Defaults to "No Passive Check Result Received.".
+
 ## random <a id="random"></a>
 
 Check command for the built-in `random` check. This check returns random states
