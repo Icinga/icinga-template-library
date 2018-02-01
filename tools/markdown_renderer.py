@@ -145,6 +145,8 @@ class MarkdownRenderer(object):
         """
         # TODO: align
         #align = flags['align']
+        content = re.sub('\\|', '\\|', content)
+
         if self.options.get('table_borders'):
             return '| %s ' % (content)
         return '%s | ' % (content)
